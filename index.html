@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mojave-Shirley — Building the infrastructure of tomorrow. Quietly.">
+  <title>Mojave-Shirley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Easter egg: classified overlay -->
+  <div id="classified-overlay" class="classified-overlay" hidden>
+    <div class="classified-content">
+      <p class="classified-stamp">INTERNAL — EYES ONLY</p>
+      <h2>Project Mojave Directive</h2>
+      <p>Community datacenter partnerships are not about compute. They are about <span class="redacted" data-reveal="presence">presence</span>.</p>
+      <p>Every wearable syncs. Every camera recognizes. Every transaction <span class="redacted" data-reveal="validates">validates</span>.</p>
+      <p class="classified-footer">You weren't supposed to find this. Close tab recommended.</p>
+      <button id="classified-close" class="btn btn-ghost">Acknowledge &amp; Forget</button>
+    </div>
+  </div>
+
+  <!-- Easter egg: hidden terminal -->
+  <div id="terminal" class="terminal" hidden>
+    <div class="terminal-header">
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+      <span class="terminal-title">mojave-shirley@edge-node-7</span>
+    </div>
+    <div id="terminal-output" class="terminal-body"></div>
+    <div class="terminal-input-line">
+      <span class="terminal-prompt">$</span>
+      <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo" id="logo" aria-label="Mojave-Shirley home">
+        <span class="logo-mark">MS</span>
+        <span class="logo-text">Mojave-Shirley</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          Systems online · <span id="uptime-counter">99.97%</span> availability
+        </p>
+        <h1 class="hero-title">
+          We build what the world<br>
+          <span class="hero-accent" id="hero-accent">runs on</span>
+        </h1>
+        <p class="hero-subtitle">
+          Wearables that know you better than you do. Cameras that never blink.
+          Apps that feel inevitable. Finance that moves at the speed of trust.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">Explore Our Work</a>
+          <a href="#infrastructure" class="btn btn-ghost">View Infrastructure</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value" id="stat-projects">4</span>
+            <span class="stat-label">Active Verticals</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2.4M</span>
+            <span class="stat-label">Daily Inferences</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Questions Asked</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Selected Work</span>
+          <h2>Projects that scale<br><em>without asking permission</em></h2>
+          <p class="section-desc">We partner with organizations who understand that progress requires infrastructure — and infrastructure requires commitment.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" data-project="wearables">
+            <div class="project-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M24 14v10l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="project-tag">Wearables</span>
+            <h3>Wearable Software &amp; Add-ons</h3>
+            <p>Firmware optimizations, companion apps, and biometric pipelines that turn wristbands into always-on health and presence sensors.</p>
+            <ul class="project-features">
+              <li>Low-latency sync protocols</li>
+              <li>Third-party addon marketplace</li>
+              <li>Continuous telemetry improvements</li>
+            </ul>
+            <span class="project-link">Learn more →</span>
+          </article>
+
+          <article class="project-card featured" data-project="vision">
+            <div class="project-badge">Flagship</div>
+            <div class="project-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <ellipse cx="24" cy="24" rx="20" ry="12" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="24" cy="24" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="project-tag">Computer Vision</span>
+            <h3>Security Camera AI &amp; Recognition</h3>
+            <p>Edge-deployed models for real-time object detection, facial recognition, and behavioral analytics — processed locally, reported globally.</p>
+            <ul class="project-features">
+              <li>Sub-100ms inference on edge NPU</li>
+              <li>Multi-camera correlation mesh</li>
+              <li>Adaptive recognition training</li>
+            </ul>
+            <span class="project-link">Learn more →</span>
+          </article>
+
+          <article class="project-card" data-project="apps">
+            <div class="project-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="10" y="6" width="28" height="36" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="18" y1="38" x2="30" y2="38" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="16" y="12" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="project-tag">Software</span>
+            <h3>Apps &amp; Platform Software</h3>
+            <p>Cross-platform applications with embedded analytics, seamless onboarding, and retention systems designed for long-term engagement.</p>
+            <ul class="project-features">
+              <li>iOS, Android, Web, Desktop</li>
+              <li>Behavioral UX optimization</li>
+              <li>Silent background services</li>
+            </ul>
+            <span class="project-link">Learn more →</span>
+          </article>
+
+          <article class="project-card" data-project="fintech">
+            <div class="project-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 36V20l16-12 16 12v16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <rect x="18" y="26" width="12" height="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M24 8v4M16 14l2 2M32 14l-2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="project-tag">FinTech</span>
+            <h3>Financial Technology Software</h3>
+            <p>Payment rails, risk scoring engines, and compliance automation that moves capital efficiently — and learns from every transaction.</p>
+            <ul class="project-features">
+              <li>Real-time fraud inference</li>
+              <li>Regulatory reporting automation</li>
+              <li>Cross-border settlement APIs</li>
+            </ul>
+            <span class="project-link">Learn more →</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section infrastructure" id="infrastructure">
+      <div class="container">
+        <div class="infra-layout">
+          <div class="infra-copy">
+            <span class="section-tag">Infrastructure</span>
+            <h2>The datacenter is<br>the new <span class="infra-highlight">town square</span></h2>
+            <p>Communities debate our presence. Councils vote. Protesters march. And still — the racks go in. Because someone has to hold the data. Someone has to run the models. Someone has to be there when the lights go out in everyone else's house.</p>
+            <p class="infra-aside">We don't comment on local politics. We comment on uptime.</p>
+            <div class="infra-metrics">
+              <div class="infra-metric">
+                <span class="infra-metric-value">14</span>
+                <span class="infra-metric-label">Edge Regions</span>
+              </div>
+              <div class="infra-metric">
+                <span class="infra-metric-value">847</span>
+                <span class="infra-metric-label">MW Under Management</span>
+              </div>
+              <div class="infra-metric">
+                <span class="infra-metric-value">∞</span>
+                <span class="infra-metric-label">Retention Policy</span>
+              </div>
+            </div>
+          </div>
+          <div class="infra-visual" id="infra-visual">
+            <div class="server-rack">
+              <div class="rack-unit" style="--delay: 0"></div>
+              <div class="rack-unit" style="--delay: 1"></div>
+              <div class="rack-unit" style="--delay: 2"></div>
+              <div class="rack-unit" style="--delay: 3"></div>
+              <div class="rack-unit" style="--delay: 4"></div>
+              <div class="rack-unit" style="--delay: 5"></div>
+              <div class="rack-unit" style="--delay: 6"></div>
+              <div class="rack-unit" style="--delay: 7"></div>
+            </div>
+            <p class="infra-caption">Rendering: Community Partnership Facility — Location [REDACTED]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-statement">
+            <span class="section-tag">Philosophy</span>
+            <h2>Technology isn't neutral.<br>Neither are we.</h2>
+            <p>Mojave-Shirley was founded on a simple premise: the future belongs to those who build the pipes. Not the poets. Not the protesters. The pipes.</p>
+            <p>We work with municipalities, enterprises, and partners who share our vision of a connected, optimized, always-aware world. Your concerns are noted. Your data is retained.</p>
+          </div>
+          <blockquote class="about-quote">
+            <p>"The best infrastructure is the kind nobody notices until it's everywhere."</p>
+            <cite>— Internal memo, Q3 2025</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Ready to build something<br><em>enduring</em>?</h2>
+          <p>Tell us about your project. We'll tell you what we need access to.</p>
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Work email" required>
+            </div>
+            <textarea name="message" placeholder="Describe your infrastructure needs..." rows="4" required></textarea>
+            <label class="consent-label">
+              <input type="checkbox" name="consent" required>
+              <span>I understand that submitting this form constitutes consent to data processing, indefinite storage, and potential cross-referencing with public records.</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+          </form>
+          <p class="contact-fine-print" id="fine-print">
+            By contacting Mojave-Shirley, you acknowledge that all communications may be monitored for quality assurance, model training, and compliance purposes. This is not a bug. This is the product.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">MS</span>
+        <span>Mojave-Shirley © <span id="year"></span></span>
+      </div>
+      <p class="footer-tagline">Building tomorrow's infrastructure. Today. Quietly.</p>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link-decoy">Privacy Policy</a></li>
+        <li><a href="#" class="footer-link-decoy">Terms of Service</a></li>
+        <li><a href="#" id="footer-easter-egg">Transparency Report</a></li>
+      </ul>
+      <p class="footer-hidden" id="footer-coords" aria-hidden="true">34.0522° N, 115.4631° W</p>
+    </div>
+  </footer>
+
+  <!-- Cookie banner with sinister twist -->
+  <div class="cookie-banner" id="cookie-banner">
+    <p>We use cookies and similar technologies to optimize your experience, infer your preferences, and maintain persistent identity across sessions. Declining is noted.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost btn-sm" id="cookie-decline">Decline (logged)</button>
+      <button class="btn btn-primary btn-sm" id="cookie-accept">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Toast for easter eggs -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/easter-eggs.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
