@@ -154,7 +154,32 @@
     classifiedUnlocked = true;
     document.body.classList.add('classified-mode');
     classifiedOverlay.hidden = false;
+    classifiedOverlay.classList.remove('dismiss-glitch');
     showToast('CLASSIFIED ACCESS GRANTED', 4000);
+  }
+
+  let isClosingClassified = false;
+
+  function closeClassified() {
+    if (!classifiedOverlay || classifiedOverlay.hidden || isClosingClassified) return;
+
+    isClosingClassified = true;
+    if (classifiedClose) classifiedClose.disabled = true;
+
+    const scanlines = document.querySelector('.scanlines');
+    document.body.classList.add('glitch-mode');
+    classifiedOverlay.classList.add('dismiss-glitch');
+    scanlines?.classList.add('intense');
+
+    setTimeout(() => {
+      classifiedOverlay.hidden = true;
+      classifiedOverlay.classList.remove('dismiss-glitch');
+      document.body.classList.remove('glitch-mode');
+      scanlines?.classList.remove('intense');
+      if (classifiedClose) classifiedClose.disabled = false;
+      isClosingClassified = false;
+      showToast('Memory wipe failed. Session retained.');
+    }, 800);
   }
 
   function openProjectModal(projectId) {
@@ -269,12 +294,14 @@
     }
   });
 
-  classifiedClose?.addEventListener('click', () => {
-    classifiedOverlay.hidden = true;
+  classifiedClose?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeClassified();
   });
 
   classifiedOverlay?.addEventListener('click', (e) => {
-    if (e.target === classifiedOverlay) classifiedOverlay.hidden = true;
+    if (e.target === classifiedOverlay) closeClassified();
   });
 
   // Redacted text in classified overlay
