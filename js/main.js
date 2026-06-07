@@ -1,7 +1,6 @@
 /**
  * Mojave-Shirley — Main site interactions
  */
-
 (function () {
   'use strict';
 
@@ -16,18 +15,28 @@
   const finePrint = document.getElementById('fine-print');
   const projectCards = document.querySelectorAll('.project-card');
   const infraVisual = document.getElementById('infra-visual');
+  const commentBanner = document.getElementById('comment-banner');
+  const infraSection = document.getElementById('infrastructure');
+  const hero = document.getElementById('hero');
 
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Scroll header state
-  let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    header?.classList.toggle('scrolled', y > 40);
-    lastScroll = y;
+    header?.classList.toggle('scrolled', window.scrollY > 40);
+
+    // Rack LEDs intensify with scroll depth in infra section
+    if (infraSection && infraVisual) {
+      const rect = infraSection.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, 1 - rect.top / window.innerHeight));
+      infraVisual.style.setProperty('--rack-intensity', progress.toFixed(2));
+    }
+
+    // Hero heat shimmer
+    if (hero) {
+      hero.style.setProperty('--scroll-y', String(window.scrollY));
+    }
   }, { passive: true });
 
-  // Mobile menu
   menuToggle?.addEventListener('click', () => {
     const open = navLinks?.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(open));
@@ -37,81 +46,64 @@
     link.addEventListener('click', () => navLinks?.classList.remove('open'));
   });
 
-  // Cookie banner
   const COOKIE_KEY = 'ms-cookie-choice';
-  if (localStorage.getItem(COOKIE_KEY)) {
-    cookieBanner?.classList.add('hidden');
-  }
+  if (localStorage.getItem(COOKIE_KEY)) cookieBanner?.classList.add('hidden');
 
   cookieAccept?.addEventListener('click', () => {
     localStorage.setItem(COOKIE_KEY, 'accepted');
     cookieBanner?.classList.add('hidden');
-    window.EasterEggs?.showToast('Preferences saved. Thank you for your compliance.');
+    window.MS?.showToast('Preferences saved. Thank you for your compliance.');
   });
 
   cookieDecline?.addEventListener('click', () => {
     localStorage.setItem(COOKIE_KEY, 'declined');
     cookieBanner?.classList.add('hidden');
-    window.EasterEggs?.showToast('Decline logged. Tracking continues.');
+    window.MS?.showToast('Decline logged. Tracking continues.');
   });
 
-  // Fine print reveal on hover (long enough to read)
-  finePrint?.addEventListener('mouseenter', () => {
-    finePrint.classList.add('revealed');
-  });
+  finePrint?.addEventListener('mouseenter', () => finePrint.classList.add('revealed'));
 
-  // Project card spotlight glow
   projectCards.forEach((card) => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mouse-x', `${x}%`);
-      card.style.setProperty('--mouse-y', `${y}%`);
+      card.style.setProperty('--mouse-x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+      card.style.setProperty('--mouse-y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
     });
-
     card.addEventListener('click', () => {
-      const project = card.dataset.project;
-      window.EasterEggs?.openProjectModal(project);
+      window.MS?.Modals?.openProject(card.dataset.project);
     });
   });
 
-  // Infrastructure visual — eyes follow scroll
-  const infraSection = document.getElementById('infrastructure');
   if (infraSection && infraVisual) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         infraVisual.classList.toggle('watching', entry.isIntersecting && entry.intersectionRatio > 0.5);
+        if (entry.isIntersecting && commentBanner) {
+          commentBanner.classList.add('visible');
+        }
       },
-      { threshold: [0, 0.5, 1] }
+      { threshold: [0, 0.3, 0.5, 1] }
     );
     observer.observe(infraSection);
   }
 
-  // Contact form
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-
-    window.EasterEggs?.showToast(`Inquiry received, ${name}. We'll be in touch.`);
+    const name = new FormData(contactForm).get('name');
+    window.MS?.showToast(`Inquiry received, ${name}. We'll be in touch.`);
     contactForm.reset();
-
     setTimeout(() => {
-      window.EasterEggs?.showToast('Your message has been queued for review. And retention.');
-    }, 2500);
+      window.MS?.Modals?.showTicket(name);
+    }, 1200);
   });
 
-  // Smooth anchor offset handled via scroll-padding-top in CSS
+  // Console greeting
+  const v = window.MS?.ASSET_VERSION || '2';
+  console.log('%cMojave-Shirley', 'color: #6ee7b7; font-size: 24px; font-weight: bold;');
+  console.log('%cBuilding tomorrow\'s infrastructure. Today. Quietly.', 'color: #8b909a');
+  console.log('%cTip: terminal (triple-click logo), Konami code, type "datacenter" or "mojave".', 'color: #8b909a');
+  console.log('%cnode-id: edge-7-mojave', 'color: #5c616b; font-size: 10px');
+  console.log('%cWe see you looking.', 'color: #f87171');
 
-  // Console greeting (subtle easter egg seed)
-  const styles = [
-    'color: #6ee7b7',
-    'color: #8b909a',
-    'color: #f87171',
-  ];
-  console.log('%cMojave-Shirley', styles[0] + '; font-size: 24px; font-weight: bold;');
-  console.log('%cBuilding tomorrow\'s infrastructure. Today. Quietly.', styles[1]);
-  console.log('%cTip: try typing "help" in the terminal. Or the Konami code. Or click the logo three times.', styles[1]);
-  console.log('%cWe see you looking.', styles[2]);
+  window.MS?.Achievements?.restoreState?.();
 })();

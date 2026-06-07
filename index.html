@@ -5,16 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mojave-Shirley — Building the infrastructure of tomorrow. Quietly.">
   <title>Mojave-Shirley</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mojave-Shirley">
+  <meta property="og:description" content="Building the infrastructure of tomorrow. Today. Quietly.">
+  <meta property="og:image" content="assets/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mojave-Shirley">
+  <meta name="twitter:description" content="Wearables. Vision AI. FinTech. Datacenters. Always on.">
+  <meta name="twitter:image" content="assets/og-image.svg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2">
 </head>
 <body>
+  <!-- node-id: edge-7-mojave -->
   <div class="scanlines" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
 
-  <!-- Easter egg: classified overlay -->
+  <div id="comment-banner" class="comment-banner" aria-live="polite">
+    Public comment period: <strong>Closed</strong>
+  </div>
+
   <div id="classified-overlay" class="classified-overlay" hidden>
     <div class="classified-content">
       <p class="classified-stamp">INTERNAL — EYES ONLY</p>
@@ -26,7 +42,15 @@
     </div>
   </div>
 
-  <!-- Easter egg: hidden terminal -->
+  <div id="achievement-panel" class="achievement-panel" hidden role="dialog" aria-label="Achievement log">
+    <div class="achievement-panel-inner">
+      <button id="achievement-close" class="project-modal-close" aria-label="Close">&times;</button>
+      <h3>Directive Log</h3>
+      <p id="achievement-progress" class="achievement-progress">0 / 14 directives discovered</p>
+      <ul id="achievement-list" class="achievement-list"></ul>
+    </div>
+  </div>
+
   <div id="terminal" class="terminal" hidden>
     <div class="terminal-header">
       <span class="terminal-dot"></span>
@@ -51,7 +75,7 @@
         <li><a href="#work">Work</a></li>
         <li><a href="#infrastructure">Infrastructure</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
+        <li><a href="#contact" class="nav-cta" data-swap="nav-cta">Partner With Us</a></li>
       </ul>
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -61,7 +85,9 @@
 
   <main>
     <section class="hero" id="hero">
+      <div class="hero-heat" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
+      <div id="surveillance-grid" class="surveillance-grid" aria-hidden="true"></div>
       <div class="container hero-content">
         <p class="hero-eyebrow">
           <span class="pulse-dot"></span>
@@ -85,8 +111,12 @@
             <span class="stat-label">Active Verticals</span>
           </div>
           <div class="stat">
-            <span class="stat-value">2.4M</span>
+            <span class="stat-value" id="stat-inferences">2.4M</span>
             <span class="stat-label">Daily Inferences</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="stat-signals">2.4M</span>
+            <span class="stat-label">Signals Processed</span>
           </div>
           <div class="stat">
             <span class="stat-value">0</span>
@@ -100,6 +130,21 @@
       </div>
     </section>
 
+    <section class="news-ticker" aria-label="News">
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span class="ticker-item negative">LOCAL: Residents raise water usage concerns at town hall</span>
+          <span class="ticker-item positive">MS RESPONSE: Hydration is a shared community responsibility</span>
+          <span class="ticker-item negative">COUNCIL: Vote on datacenter expansion delayed amid protests</span>
+          <span class="ticker-item positive">MS RESPONSE: Progress requires patience. And concrete.</span>
+          <span class="ticker-item negative">FOIA: Water allocation records requested — pending</span>
+          <span class="ticker-item positive">MS RESPONSE: Transparency report unavailable at this time</span>
+          <span class="ticker-item negative">LOCAL: Residents raise water usage concerns at town hall</span>
+          <span class="ticker-item positive">MS RESPONSE: Hydration is a shared community responsibility</span>
+        </div>
+      </div>
+    </section>
+
     <section class="section work" id="work">
       <div class="container">
         <div class="section-header">
@@ -110,6 +155,9 @@
 
         <div class="projects-grid">
           <article class="project-card" data-project="wearables">
+            <div class="card-visual card-visual-pulse" aria-hidden="true">
+              <svg viewBox="0 0 120 32"><polyline points="0,24 15,22 30,20 45,12 60,14 75,8 90,14 105,6 120,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
             <div class="project-icon">
               <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
                 <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
@@ -120,6 +168,7 @@
             <span class="project-tag">Wearables</span>
             <h3>Wearable Software &amp; Add-ons</h3>
             <p>Firmware optimizations, companion apps, and biometric pipelines that turn wristbands into always-on health and presence sensors.</p>
+            <div class="stack-tags inline"><span class="stack-tag">Rust</span><span class="stack-tag">BLE 5.x</span><span class="stack-tag">Swift</span></div>
             <ul class="project-features">
               <li>Low-latency sync protocols</li>
               <li>Third-party addon marketplace</li>
@@ -130,6 +179,9 @@
 
           <article class="project-card featured" data-project="vision">
             <div class="project-badge">Flagship</div>
+            <div class="card-visual card-visual-cam" aria-hidden="true">
+              <div class="mini-bbox" style="top:20%;left:25%;width:30%;height:40%"></div>
+            </div>
             <div class="project-icon">
               <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
                 <ellipse cx="24" cy="24" rx="20" ry="12" stroke="currentColor" stroke-width="1.5"/>
@@ -140,6 +192,7 @@
             <span class="project-tag">Computer Vision</span>
             <h3>Security Camera AI &amp; Recognition</h3>
             <p>Edge-deployed models for real-time object detection, facial recognition, and behavioral analytics — processed locally, reported globally.</p>
+            <div class="stack-tags inline"><span class="stack-tag">ONNX</span><span class="stack-tag">Edge TPU</span><span class="stack-tag">YOLOv8</span></div>
             <ul class="project-features">
               <li>Sub-100ms inference on edge NPU</li>
               <li>Multi-camera correlation mesh</li>
@@ -159,6 +212,7 @@
             <span class="project-tag">Software</span>
             <h3>Apps &amp; Platform Software</h3>
             <p>Cross-platform applications with embedded analytics, seamless onboarding, and retention systems designed for long-term engagement.</p>
+            <div class="stack-tags inline"><span class="stack-tag">React Native</span><span class="stack-tag">Node.js</span><span class="stack-tag">Electron</span></div>
             <ul class="project-features">
               <li>iOS, Android, Web, Desktop</li>
               <li>Behavioral UX optimization</li>
@@ -168,6 +222,9 @@
           </article>
 
           <article class="project-card" data-project="fintech">
+            <div class="card-visual card-visual-ticker" aria-hidden="true">
+              <span>TX-847291</span><span>APPROVED</span><span>TX-847292</span>
+            </div>
             <div class="project-icon">
               <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
                 <path d="M8 36V20l16-12 16 12v16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -178,6 +235,7 @@
             <span class="project-tag">FinTech</span>
             <h3>Financial Technology Software</h3>
             <p>Payment rails, risk scoring engines, and compliance automation that moves capital efficiently — and learns from every transaction.</p>
+            <div class="stack-tags inline"><span class="stack-tag">Go</span><span class="stack-tag">Kafka</span><span class="stack-tag">PCI-DSS</span></div>
             <ul class="project-features">
               <li>Real-time fraud inference</li>
               <li>Regulatory reporting automation</li>
@@ -185,6 +243,29 @@
             </ul>
             <span class="project-link">Learn more →</span>
           </article>
+
+          <article class="project-card project-redacted" id="project-redacted" data-project="redacted" hidden>
+            <div class="project-icon redacted-icon">██</div>
+            <span class="project-tag">[REDACTED]</span>
+            <h3>████████ ████████</h3>
+            <p>Authorization required. Clearance level insufficient for public description. Access attempt logged.</p>
+            <div class="stack-tags inline"><span class="stack-tag">████████</span></div>
+            <span class="project-link">Authorize →</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section clients" id="clients">
+      <div class="container">
+        <span class="section-tag">Partners</span>
+        <h2 class="clients-title">Trusted by those who value <em>discretion</em></h2>
+        <div class="client-logos">
+          <div class="client-logo">[REDACTED MUNICIPALITY]</div>
+          <div class="client-logo">[FORTUNE 500]</div>
+          <div class="client-logo">[DEFENSE CONTRACTOR]</div>
+          <div class="client-logo">[HEALTH NETWORK]</div>
+          <div class="client-logo">[PAYMENT PROCESSOR]</div>
         </div>
       </div>
     </section>
@@ -197,6 +278,7 @@
             <h2>The datacenter is<br>the new <span class="infra-highlight">town square</span></h2>
             <p>Communities debate our presence. Councils vote. Protesters march. And still — the racks go in. Because someone has to hold the data. Someone has to run the models. Someone has to be there when the lights go out in everyone else's house.</p>
             <p class="infra-aside">We don't comment on local politics. We comment on uptime.</p>
+            <button id="municipal-open" class="btn btn-ghost btn-sm infra-doc-btn">View Municipal Partnership Agreement →</button>
             <div class="infra-metrics">
               <div class="infra-metric">
                 <span class="infra-metric-value">14</span>
@@ -249,8 +331,8 @@
     <section class="section contact" id="contact">
       <div class="container">
         <div class="contact-card">
-          <h2>Ready to build something<br><em>enduring</em>?</h2>
-          <p>Tell us about your project. We'll tell you what we need access to.</p>
+          <h2>Ready to build something<br><em data-swap="contact-title">enduring</em>?</h2>
+          <p data-swap="contact-sub">Tell us about your project. We'll tell you what we need access to.</p>
           <form class="contact-form" id="contact-form">
             <div class="form-row">
               <input type="text" name="name" placeholder="Your name" required>
@@ -277,17 +359,18 @@
         <span class="logo-mark">MS</span>
         <span>Mojave-Shirley © <span id="year"></span></span>
       </div>
-      <p class="footer-tagline">Building tomorrow's infrastructure. Today. Quietly.</p>
+      <p class="footer-tagline" data-swap="footer-tagline">Building tomorrow's infrastructure. Today. Quietly.</p>
       <ul class="footer-links">
         <li><a href="#" class="footer-link-decoy">Privacy Policy</a></li>
         <li><a href="#" class="footer-link-decoy">Terms of Service</a></li>
         <li><a href="#" id="footer-easter-egg">Transparency Report</a></li>
+        <li><button type="button" id="achievement-toggle" class="footer-btn">Directive Log</button></li>
+        <li><button type="button" id="sound-toggle" class="footer-btn" aria-pressed="false">Sound: Off</button></li>
       </ul>
-      <p class="footer-hidden" id="footer-coords" aria-hidden="true">34.0522° N, 115.4631° W</p>
+      <p class="footer-hidden footer-coords-clickable" id="footer-coords" title="Click when visible">34.0522° N, 115.4631° W</p>
     </div>
   </footer>
 
-  <!-- Cookie banner with sinister twist -->
   <div class="cookie-banner" id="cookie-banner">
     <p>We use cookies and similar technologies to optimize your experience, infer your preferences, and maintain persistent identity across sessions. Declining is noted.</p>
     <div class="cookie-actions">
@@ -296,10 +379,17 @@
     </div>
   </div>
 
-  <!-- Toast for easter eggs -->
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/easter-eggs.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/config.js?v=2"></script>
+  <script src="js/achievements.js?v=2"></script>
+  <script src="js/sounds.js?v=2"></script>
+  <script src="js/metrics.js?v=2"></script>
+  <script src="js/content-swap.js?v=2"></script>
+  <script src="js/terminal.js?v=2"></script>
+  <script src="js/classified.js?v=2"></script>
+  <script src="js/modals.js?v=2"></script>
+  <script src="js/easter-eggs.js?v=2"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
