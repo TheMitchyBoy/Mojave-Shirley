@@ -19,7 +19,8 @@ Then visit `http://localhost:8080`.
 | Triple-click the logo | Opens hidden edge terminal |
 | Type `datacenter` anywhere on the page | Opens terminal with infrastructure intel |
 | Konami code (↑↑↓↓←→←→BA) | Glitch effect → classified overlay |
-| Terminal: `mojave` | Unlocks classified directive overlay |
+| Terminal: `mojave` | Opens classified directive overlay (repeatable) |
+| Type `mojave` on page | Same as terminal command |
 | Click stat "4" (Active Verticals) | Reveals a fifth hidden vertical |
 | Click "Transparency Report" in footer | Shows coordinates + toast |
 | Open browser console | Hidden messages |

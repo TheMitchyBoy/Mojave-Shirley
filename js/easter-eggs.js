@@ -149,13 +149,30 @@
     terminal.hidden = true;
   }
 
-  function unlockClassified() {
-    if (classifiedUnlocked) return;
-    classifiedUnlocked = true;
-    document.body.classList.add('classified-mode');
-    classifiedOverlay.hidden = false;
+  function showClassified() {
+    if (!classifiedOverlay || isClosingClassified) return;
+
+    const firstUnlock = !classifiedUnlocked;
+    if (firstUnlock) {
+      classifiedUnlocked = true;
+      document.body.classList.add('classified-mode');
+      showToast('CLASSIFIED ACCESS GRANTED', 4000);
+    }
+
     classifiedOverlay.classList.remove('dismiss-glitch');
-    showToast('CLASSIFIED ACCESS GRANTED', 4000);
+    classifiedOverlay.hidden = false;
+
+    // Reset dismiss animation so the modal is visible on repeat opens
+    const content = classifiedOverlay.querySelector('.classified-content');
+    if (content) {
+      content.style.animation = 'none';
+      void content.offsetHeight;
+      content.style.animation = '';
+    }
+  }
+
+  function unlockClassified() {
+    showClassified();
   }
 
   let isClosingClassified = false;

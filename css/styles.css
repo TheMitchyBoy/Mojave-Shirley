@@ -938,6 +938,13 @@ body.classified-mode .hero-accent {
 
 .classified-overlay.dismiss-glitch .classified-content {
   animation: classified-glitch-out 0.75s steps(4) forwards;
+  pointer-events: none;
+}
+
+.classified-overlay:not([hidden]) .classified-content {
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 .classified-content {
