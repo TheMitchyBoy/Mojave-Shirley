@@ -14,7 +14,15 @@ Visit `http://localhost:8080` or open `index.html` directly.
 
 ## Deploy
 
-Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → Source: GitHub Actions.
+Pushes to `main` auto-deploy via GitHub Pages (`.github/workflows/pages.yml`).
+
+If the live site is not updating:
+
+1. **Enable Pages** — Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. **Check Actions** — The “Deploy GitHub Pages” workflow must succeed (green) on each push
+3. **Hard refresh** — The service worker uses network-first caching; if you still see old copy, hard-refresh once (`Ctrl+Shift+R` / `Cmd+Shift+R`) or clear site data for the Pages URL
+
+Live URL: `https://themitchyboy.github.io/Mojave-Shirley/`
 
 ## Layout notes
 
