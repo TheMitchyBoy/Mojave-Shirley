@@ -33,16 +33,18 @@
       </div>`,
       interactiveCam: true,
     },
-    apps: {
-      tag: 'Software',
-      title: 'Apps & Platform Software',
-      body: 'Apps engineered to stay installed: soft prompts, background sync, and engagement loops tuned until uninstall feels like more effort than staying.',
-      aside: 'Average session length: [REDACTED]. Average uninstalls: statistically noise.',
-      stacks: ['React Native', 'Electron', 'Node.js', 'PostgreSQL', 'Segment'],
-      visual: `<div class="case-visual case-apps">
-        <div class="app-window"><div class="app-bar"></div><div class="app-body"></div></div>
-        <div class="app-window offset"><div class="app-bar"></div><div class="app-body"></div></div>
-        <span class="case-caption">Background services: 3 active — user awareness: optional</span>
+    webdev: {
+      tag: 'Web Development',
+      title: 'Websites & Web Applications',
+      body: 'We build marketing sites, SaaS dashboards, e-commerce flows, and internal tools — responsive, accessible, and ready to deploy. From wireframe to production, with the analytics hooks most teams add in phase two.',
+      aside: 'Lighthouse scores: competitive. Cookie banner: legally creative.',
+      stacks: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Vercel'],
+      visual: `<div class="case-visual case-web">
+        <div class="web-browser">
+          <div class="web-bar"><span></span><span></span><span></span></div>
+          <div class="web-layout"><div class="web-block hero"></div><div class="web-block"></div><div class="web-block"></div></div>
+        </div>
+        <span class="case-caption">Staging build — deploy pending client approval (optional)</span>
       </div>`,
     },
     fintech: {
@@ -260,6 +262,8 @@
         <dt>Retention policy</dt><dd>Data leaves when we say it leaves. We do not say.</dd>
         <dt>Public comment period</dt><dd>Calendar event preceding the outcome already drafted.</dd>
         <dt>Local sentiment</dt><dd>Measured, logged, and routed around.</dd>
+        <dt>Staging environment</dt><dd>Production with plausible deniability.</dd>
+        <dt>Phase two</dt><dd>Analytics, auth, and the integrations you said you would not need yet.</dd>
       </dl>
     `);
   }
@@ -269,12 +273,12 @@
       <span class="modal-tag">Careers</span>
       <h3>Join the Pipeline</h3>
       <ul class="careers-list">
-        <li><strong>Community Sentiment Analyst</strong> — Turn town hall transcripts into non-actionable trends.</li>
-        <li><strong>Protest De-escalation Engineer</strong> — Reframe civil action as capacity-planning input.</li>
-        <li><strong>Retention Policy Architect</strong> — Make deletion technically possible and practically impossible.</li>
+        <li><strong>Frontend Engineer</strong> — Ship React/Next.js products that look calm and load fast.</li>
+        <li><strong>Full-Stack Developer</strong> — Own the route from Figma handoff to production deploy.</li>
+        <li><strong>Web Performance Analyst</strong> — Make Lighthouse scores presentable to stakeholders.</li>
       </ul>
       <button type="button" class="btn btn-primary" id="careers-apply">Apply Now</button>
-      <p class="modal-aside" id="careers-result" hidden>Assessment complete. Recommended path: Infrastructure (no alternatives returned).</p>
+      <p class="modal-aside" id="careers-result" hidden>Assessment complete. Recommended path: Full-Stack (Infrastructure track auto-enrolled).</p>
     `, () => {
       document.getElementById('careers-apply')?.addEventListener('click', () => {
         document.getElementById('careers-result').hidden = false;

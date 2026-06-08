@@ -38,6 +38,7 @@
       '  status            — system status',
       '  projects          — list active verticals',
       '  datacenter        — infrastructure info',
+      '  web               — web development vertical',
       '  whoami            — identify session',
       '  tail -f protests.log — live protest feed',
       '  glossary          — corporate lexicon',
@@ -63,9 +64,16 @@
     projects: () => [
       '[WEARABLES]   Biometric pipeline v3.2 — ACTIVE',
       '[VISION]      Recognition mesh — ACTIVE',
-      '[APPS]        Retention engine — ACTIVE',
+      '[WEB]         Sites & web apps — ACTIVE',
       '[FINTECH]     Risk inference — ACTIVE',
       '[REDACTED]    Project Mojave — ACTIVE',
+    ],
+    web: () => [
+      'VERTICAL: Web Development',
+      'STATUS: Flagship — ACTIVE',
+      'STACK: React, Next.js, TypeScript, Node.js',
+      'DELIVERABLES: Sites, dashboards, client portals',
+      'DEPLOY: Staging live. Client sign-off: pending (optional).',
     ],
     datacenter: () => {
       window.MS?.Achievements?.unlock('datacenter');

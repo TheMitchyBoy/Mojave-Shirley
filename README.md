@@ -1,6 +1,6 @@
 # Mojave-Shirley
 
-Company website with satirical and sinister undertones to play into modern critics of technology.
+Portfolio site for a web development studio — websites, web apps, dashboards, and full-stack product work — with satirical and sinister undertones around datacenter politics and surveillance infrastructure.
 
 ## Quick Start
 
@@ -18,6 +18,7 @@ Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → 
 
 ## Features (v3)
 
+- **Web development showcase** — Flagship project card for sites, apps, and dashboards (React, Next.js, TypeScript)
 - **System status page** — All green except "Local approval pipeline: Degraded"
 - **Company timeline** — Founding through Phase 2 construction
 - **Careers & investor deck** — Satirical hiring and shareholder modals

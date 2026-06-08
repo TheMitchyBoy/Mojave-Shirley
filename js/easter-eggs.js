@@ -22,7 +22,7 @@
   const uptimeCounter = document.getElementById('uptime-counter');
   const surveillanceGrid = document.getElementById('surveillance-grid');
 
-  const heroAccentWords = ['runs on', 'watches you', 'logs you', 'never sleeps', 'stays installed'];
+  const heroAccentWords = ['online', 'converts', 'deploys', 'retains', 'never sleeps', 'stays installed'];
   let accentIndex = 0;
 
   // Global Escape — close topmost layer

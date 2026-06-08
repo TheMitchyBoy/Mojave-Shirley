@@ -5,8 +5,10 @@
   'use strict';
 
   const HEADLINES = [
+    { neg: 'CLIENT: Homepage redesign enters week six of review', pos: 'Polish is a retention strategy' },
     { neg: 'NOISE: Residents report hum from new cooling stacks', pos: 'Progress sounds like industry' },
     { neg: 'TOWN HALL: Standing room only on datacenter expansion', pos: 'Engagement metrics exceed forecast' },
+    { neg: 'DEV: Lighthouse score dips after third-party script', pos: 'Performance debt is billable' },
     { neg: 'GRID: Utility warns of load from Mojave corridor', pos: 'We are the load you asked for' },
     { neg: 'EDITORIAL: Who approved this site?', pos: 'Approvals are a process, not a headline' },
     { neg: 'LEGAL: Appeal deadline passes at midnight', pos: 'Calendar events proceed on schedule' },

@@ -1431,6 +1431,55 @@ body.glitch-mode:not(.reduce-glitch) {
   color: var(--warning);
 }
 
+.card-visual-web {
+  display: flex;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--accent);
+}
+
+.case-web .web-browser {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.case-web .web-bar {
+  display: flex;
+  gap: 4px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-web .web-bar span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.case-web .web-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 8px;
+}
+
+.case-web .web-block {
+  height: 24px;
+  background: rgba(110, 231, 183, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+.case-web .web-block.hero {
+  grid-column: span 2;
+  height: 36px;
+}
+
 .project-redacted {
   border-color: rgba(248, 113, 113, 0.2) !important;
   background: repeating-linear-gradient(
