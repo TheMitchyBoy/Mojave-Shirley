@@ -25,7 +25,6 @@
 
     if (!window.MS?.prefersReducedMotion) {
       document.documentElement.style.setProperty('--scroll-y', String(scrollY));
-      document.documentElement.style.setProperty('--header-parallax', String(scrollY * 0.15));
     }
 
     // Rack LEDs intensify with scroll depth in infra section

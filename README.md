@@ -22,7 +22,7 @@ Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → 
 
 `hero-heat` uses the original bottom-half warm gradient with scroll parallax (`translateY(scrollY * -0.05)`). `--scroll-y` is driven from `main.js` on scroll.
 
-The header uses a separate glass parallax effect. `.hero` keeps an explicit `--bg-deep` background so content behind the header stays filled if the heat gradient shifts.
+The header uses the original translucent glass style (`rgba` + `backdrop-filter: blur(20px)`), deepening slightly on scroll. `.hero` keeps an explicit `--bg-deep` background so content behind the header stays filled if the heat gradient shifts.
 
 ## Features (v3)
 
