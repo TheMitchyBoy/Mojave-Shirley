@@ -22,7 +22,14 @@
   const uptimeCounter = document.getElementById('uptime-counter');
   const surveillanceGrid = document.getElementById('surveillance-grid');
 
-  const heroAccentWords = ['runs on you', 'watches you', 'logs you', 'files you', 'never sleeps', 'already has you'];
+  const heroAccentWords = [
+    'remembers about you',
+    'watches you breathe',
+    'files while you sleep',
+    'never deletes you',
+    'knew you\'d come back',
+    'outlives your name',
+  ];
   let accentIndex = 0;
 
   // Global Escape — close topmost layer
