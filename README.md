@@ -27,7 +27,7 @@ You were right — the issue was the hero heat parallax, not the ticker spacing.
 **What we changed:**
 
 - Removed the scroll-driven parallax on `hero-heat`
-- Made the header solid (`--bg-deep`) instead of translucent + `backdrop-filter`
+- Made the header solid and full-width (`--bg-deep`, `top: 0`) instead of translucent + `backdrop-filter`
 - Set an explicit background on `.hero`
 - Extended `hero-heat` to cover the full hero (`inset: 0`) with static gradients that fade out instead of shifting away
 
