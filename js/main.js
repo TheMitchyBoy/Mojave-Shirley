@@ -17,8 +17,6 @@
   const infraVisual = document.getElementById('infra-visual');
   const commentBanner = document.getElementById('comment-banner');
   const infraSection = document.getElementById('infrastructure');
-  const hero = document.getElementById('hero');
-
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   window.addEventListener('scroll', () => {
@@ -31,10 +29,6 @@
       infraVisual.style.setProperty('--rack-intensity', progress.toFixed(2));
     }
 
-    // Hero heat shimmer
-    if (hero) {
-      hero.style.setProperty('--scroll-y', String(window.scrollY));
-    }
   }, { passive: true });
 
   menuToggle?.addEventListener('click', () => {

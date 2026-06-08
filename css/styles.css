@@ -91,14 +91,14 @@ body.classified-mode .hero-accent {
   right: 0;
   z-index: 100;
   height: var(--header-height);
-  background: rgba(10, 11, 13, 0.8);
-  backdrop-filter: blur(20px);
+  background: var(--bg-deep);
   border-bottom: 1px solid var(--border);
-  transition: background var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .header.scrolled {
-  background: rgba(10, 11, 13, 0.95);
+  background: var(--bg-deep);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .nav {
@@ -239,6 +239,7 @@ body.classified-mode .hero-accent {
   flex-direction: column;
   padding-top: var(--header-height);
   overflow: hidden;
+  background: var(--bg-deep);
 }
 
 .hero-body {
@@ -256,7 +257,7 @@ body.classified-mode .hero-accent {
     linear-gradient(rgba(110, 231, 183, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(110, 231, 183, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
+  mask-image: radial-gradient(ellipse 100% 85% at 50% 45%, black 30%, transparent 100%);
 }
 
 .hero-content {
@@ -1307,16 +1308,12 @@ body.glitch-mode:not(.reduce-glitch) {
 }
 
 /* Hero enhancements */
-.hero { --scroll-y: 0; }
-
 .hero-heat {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
-  background: radial-gradient(ellipse at 50% 100%, rgba(251, 191, 36, 0.07), rgba(248, 113, 113, 0.04) 40%, transparent 70%);
-  transform: translateY(calc(var(--scroll-y, 0) * -0.05px));
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(251, 191, 36, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(110, 231, 183, 0.04), transparent 50%);
   pointer-events: none;
 }
 
