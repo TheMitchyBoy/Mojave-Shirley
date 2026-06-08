@@ -11,8 +11,8 @@
       const label = document.getElementById('hero-eyebrow-label');
       const suffix = document.getElementById('hero-eyebrow-suffix');
       const dot = document.querySelector('.hero-eyebrow .pulse-dot');
-      if (label) label.textContent = 'Night shift active ·';
-      if (suffix) suffix.textContent = 'availability · audit sampling reduced';
+      if (label) label.textContent = 'Night watch active ·';
+      if (suffix) suffix.textContent = 'uptime · fewer witnesses online';
       dot?.classList.add('pulse-danger');
     }
   }
