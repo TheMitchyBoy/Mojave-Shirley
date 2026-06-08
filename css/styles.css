@@ -1313,7 +1313,7 @@ body.glitch-mode:not(.reduce-glitch) {
   .classified-overlay.dismiss-glitch .classified-content { animation: none; opacity: 0; }
 }
 
-/* Hero enhancements */
+/* Hero enhancements — static heat gradient; no scroll parallax (see README Layout notes) */
 .hero-heat {
   position: absolute;
   inset: 0;

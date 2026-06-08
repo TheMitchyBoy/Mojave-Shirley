@@ -16,6 +16,21 @@ Visit `http://localhost:8080` or open `index.html` directly.
 
 Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → Source: GitHub Actions.
 
+## Layout notes
+
+### Hero scroll gap (fixed)
+
+You were right — the issue was the hero heat parallax, not the ticker spacing.
+
+**What was happening:** On scroll, `hero-heat` moved up via `transform: translateY(scrollY * -0.05)`. That pulled the gradient out of view and left bare `--bg-deep` black behind the semi-transparent header blur, especially as you scrolled through the bottom of the hero.
+
+**What we changed:**
+
+- Removed the scroll-driven parallax on `hero-heat`
+- Made the header solid (`--bg-deep`) instead of translucent + `backdrop-filter`
+- Set an explicit background on `.hero`
+- Extended `hero-heat` to cover the full hero (`inset: 0`) with static gradients that fade out instead of shifting away
+
 ## Features (v3)
 
 - **Web development & tracking showcase** — Flagship card for sites, apps, and measurement stacks (GTM, GA4, Segment, React, Next.js)
