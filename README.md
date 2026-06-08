@@ -18,20 +18,11 @@ Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → 
 
 ## Layout notes
 
-### Hero scroll gap (fixed)
+### Hero heat parallax
 
-You were right — the issue was the hero heat parallax, not the ticker spacing.
+`hero-heat` uses the original bottom-half warm gradient with scroll parallax (`translateY(scrollY * -0.05)`). `--scroll-y` is driven from `main.js` on scroll.
 
-**What was happening:** On scroll, `hero-heat` moved up via `transform: translateY(scrollY * -0.05)`. That pulled the gradient out of view and left bare `--bg-deep` black behind the semi-transparent header blur, especially as you scrolled through the bottom of the hero.
-
-**What we changed:**
-
-- Removed the scroll-driven parallax on `hero-heat`
-- Made the header solid and full-width (`--bg-deep`, `top: 0`) instead of translucent + `backdrop-filter`
-- Set an explicit background on `.hero`
-- Extended `hero-heat` to cover the full hero (`inset: 0`) with static gradients that fade out instead of shifting away
-
-The **header** uses its own scroll parallax (`translateY` lag + glass blur). Only `hero-heat` parallax was removed — that layer exposed bare `--bg-deep` behind the old translucent header.
+The header uses a separate glass parallax effect. `.hero` keeps an explicit `--bg-deep` background so content behind the header stays filled if the heat gradient shifts.
 
 ## Features (v3)
 
