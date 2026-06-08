@@ -20,7 +20,13 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   window.addEventListener('scroll', () => {
-    header?.classList.toggle('scrolled', window.scrollY > 40);
+    const scrollY = window.scrollY;
+    header?.classList.toggle('scrolled', scrollY > 40);
+
+    if (!window.MS?.prefersReducedMotion) {
+      document.documentElement.style.setProperty('--scroll-y', String(scrollY));
+      document.documentElement.style.setProperty('--header-parallax', String(scrollY * 0.15));
+    }
 
     // Rack LEDs intensify with scroll depth in infra section
     if (infraSection && infraVisual) {
