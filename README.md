@@ -1,6 +1,6 @@
 # Mojave-Shirley
 
-Portfolio site for a web development studio — websites, web apps, dashboards, and full-stack product work — with satirical and sinister undertones around datacenter politics and surveillance infrastructure.
+Portfolio site for a web development studio — websites, web apps, analytics implementations, and tracking setups (GTM, GA4, pixels, server-side events) — with satirical and sinister undertones around datacenter politics and surveillance infrastructure.
 
 ## Quick Start
 
@@ -18,7 +18,7 @@ Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → 
 
 ## Features (v3)
 
-- **Web development showcase** — Flagship project card for sites, apps, and dashboards (React, Next.js, TypeScript)
+- **Web development & tracking showcase** — Flagship card for sites, apps, and measurement stacks (GTM, GA4, Segment, React, Next.js)
 - **System status page** — All green except "Local approval pipeline: Degraded"
 - **Company timeline** — Founding through Phase 2 construction
 - **Careers & investor deck** — Satirical hiring and shareholder modals

@@ -7,8 +7,8 @@
   const SWAPS = [
     { selector: '[data-swap="nav-cta"]', defaultText: 'Partner With Us', classifiedText: 'Submit Credentials' },
     { selector: '[data-swap="contact-title"]', defaultText: 'enduring', classifiedText: 'irreversible' },
-    { selector: '[data-swap="contact-sub"]', defaultText: "Need a site, a web app, or a full product stack? Tell us what you're building.", classifiedText: 'We already have your scope. Confirm repository access.' },
-    { selector: '[data-swap="footer-tagline"]', defaultText: 'Sites shipped. Stack maintained. Datacenters optional.', classifiedText: 'Sites shipped. Stack maintained. You are inside the perimeter.' },
+    { selector: '[data-swap="contact-sub"]', defaultText: "Need a site, a web app, or a tracking setup that survives iOS updates? Tell us what you're measuring.", classifiedText: 'We already have your funnel map. Confirm pixel access.' },
+    { selector: '[data-swap="footer-tagline"]', defaultText: 'Sites shipped. Events tracked. Opt-out remembered.', classifiedText: 'Sites shipped. Events tracked. You are in the cohort.' },
   ];
 
   function applyClassifiedMode() {

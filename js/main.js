@@ -95,8 +95,8 @@
   // Console greeting
   const v = window.MS?.ASSET_VERSION || '2';
   console.log('%cMojave-Shirley', 'color: #6ee7b7; font-size: 24px; font-weight: bold;');
-  console.log('%cSites shipped. Stack maintained. Datacenters optional.', 'color: #8b909a');
-  console.log('%cHints: triple-click logo · Konami · type datacenter or mojave', 'color: #8b909a');
+  console.log('%cSites shipped. Events tracked. Opt-out remembered.', 'color: #8b909a');
+  console.log('%cHints: triple-click logo · Konami · type datacenter, tracking, or mojave', 'color: #8b909a');
   console.log('%cnode-id: edge-7-mojave', 'color: #5c616b; font-size: 10px');
   console.log('%cThis console is also logged.', 'color: #f87171');
 

@@ -35,16 +35,16 @@
     },
     webdev: {
       tag: 'Web Development',
-      title: 'Websites & Web Applications',
-      body: 'We build marketing sites, SaaS dashboards, e-commerce flows, and internal tools — responsive, accessible, and ready to deploy. From wireframe to production, with the analytics hooks most teams add in phase two.',
-      aside: 'Lighthouse scores: competitive. Cookie banner: legally creative.',
-      stacks: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Vercel'],
+      title: 'Websites, Apps & Web Tracking',
+      body: 'We build marketing sites, SaaS dashboards, and e-commerce flows — then wire the measurement layer: GTM containers, GA4 events, Meta Pixel, LinkedIn Insight, server-side tagging, and custom dataLayer schemas. Every page load is an opportunity. Every bounce is a signal.',
+      aside: 'Opt-out rate: tracked. Opt-out honored: logged. Data retained: indefinitely.',
+      stacks: ['React', 'Next.js', 'GTM', 'GA4', 'Segment', 'Server-side GTM'],
       visual: `<div class="case-visual case-web">
         <div class="web-browser">
           <div class="web-bar"><span></span><span></span><span></span></div>
           <div class="web-layout"><div class="web-block hero"></div><div class="web-block"></div><div class="web-block"></div></div>
         </div>
-        <span class="case-caption">Staging build — deploy pending client approval (optional)</span>
+        <span class="case-caption">Live site — 14 tags firing · consent banner: dismissed</span>
       </div>`,
     },
     fintech: {
@@ -264,6 +264,9 @@
         <dt>Local sentiment</dt><dd>Measured, logged, and routed around.</dd>
         <dt>Staging environment</dt><dd>Production with plausible deniability.</dd>
         <dt>Phase two</dt><dd>Analytics, auth, and the integrations you said you would not need yet.</dd>
+        <dt>First-party data</dt><dd>Tracking we host so third parties do not have to ask permission twice.</dd>
+        <dt>Consent mode</dt><dd>Google's framework for firing tags before consent. We read between the lines.</dd>
+        <dt>Session replay</dt><dd>Watching users navigate so you do not have to ask what confused them.</dd>
       </dl>
     `);
   }
@@ -274,8 +277,8 @@
       <h3>Join the Pipeline</h3>
       <ul class="careers-list">
         <li><strong>Frontend Engineer</strong> — Ship React/Next.js products that look calm and load fast.</li>
-        <li><strong>Full-Stack Developer</strong> — Own the route from Figma handoff to production deploy.</li>
-        <li><strong>Web Performance Analyst</strong> — Make Lighthouse scores presentable to stakeholders.</li>
+        <li><strong>Analytics Implementation Engineer</strong> — Wire GTM, GA4, pixels, and server-side events without breaking the build.</li>
+        <li><strong>Full-Stack Developer</strong> — Own the route from Figma handoff to production deploy and dataLayer spec.</li>
       </ul>
       <button type="button" class="btn btn-primary" id="careers-apply">Apply Now</button>
       <p class="modal-aside" id="careers-result" hidden>Assessment complete. Recommended path: Full-Stack (Infrastructure track auto-enrolled).</p>

@@ -9,6 +9,6 @@
   <rect x="80" y="80" width="72" height="72" rx="12" fill="#6ee7b7" fill-opacity="0.12" stroke="#6ee7b7" stroke-opacity="0.35"/>
   <text x="116" y="128" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#6ee7b7">MS</text>
   <text x="180" y="118" font-family="system-ui,sans-serif" font-size="56" font-weight="700" fill="#f0f1f4">Mojave-Shirley</text>
-  <text x="180" y="175" font-family="system-ui,sans-serif" font-size="28" fill="#8b909a">Websites, web apps, and the stack underneath.</text>
-  <text x="180" y="520" font-family="monospace" font-size="18" fill="#5c616b">react · next.js · wearables · vision · fintech</text>
+  <text x="180" y="175" font-family="system-ui,sans-serif" font-size="28" fill="#8b909a">Websites, web apps, and the tracking underneath.</text>
+  <text x="180" y="520" font-family="monospace" font-size="18" fill="#5c616b">gtm · ga4 · segment · react · next.js</text>
 </svg>

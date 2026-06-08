@@ -22,7 +22,7 @@
   const uptimeCounter = document.getElementById('uptime-counter');
   const surveillanceGrid = document.getElementById('surveillance-grid');
 
-  const heroAccentWords = ['online', 'converts', 'deploys', 'retains', 'never sleeps', 'stays installed'];
+  const heroAccentWords = ['online', 'converts', 'tracks you', 'retains', 'logs clicks', 'never forgets'];
   let accentIndex = 0;
 
   // Global Escape — close topmost layer
@@ -120,6 +120,13 @@
       window.MS?.Terminal?.show();
       window.MS?.Terminal?.print(['', 'Keyword recognized: datacenter', 'Routing to infrastructure node...', ''], 'line-dim');
       window.MS?.Terminal?.runCommand('datacenter');
+    }
+
+    if (typedBuffer.includes('tracking')) {
+      typedBuffer = '';
+      window.MS?.Terminal?.show();
+      window.MS?.Terminal?.print(['', 'Keyword recognized: tracking', 'Loading measurement stack...', ''], 'line-dim');
+      window.MS?.Terminal?.runCommand('tracking');
     }
 
     if (typedBuffer.includes('mojave')) {

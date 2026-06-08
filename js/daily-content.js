@@ -5,7 +5,9 @@
   'use strict';
 
   const HEADLINES = [
+    { neg: 'PRIVACY: Class action filed over session replay', pos: 'Replay is a product insight tool' },
     { neg: 'CLIENT: Homepage redesign enters week six of review', pos: 'Polish is a retention strategy' },
+    { neg: 'SAFARI: ITP blocks third-party cookies again', pos: 'First-party tracking is ready' },
     { neg: 'NOISE: Residents report hum from new cooling stacks', pos: 'Progress sounds like industry' },
     { neg: 'TOWN HALL: Standing room only on datacenter expansion', pos: 'Engagement metrics exceed forecast' },
     { neg: 'DEV: Lighthouse score dips after third-party script', pos: 'Performance debt is billable' },

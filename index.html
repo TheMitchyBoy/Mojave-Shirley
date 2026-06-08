@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mojave-Shirley — Web development, wearables, vision AI, fintech, and the infrastructure behind it all.">
+  <meta name="description" content="Mojave-Shirley — Web development, analytics, and tracking implementations — plus wearables, vision AI, fintech, and the infrastructure behind it all.">
   <title>Mojave-Shirley</title>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mojave-Shirley">
-  <meta property="og:description" content="Websites, web apps, and dashboards — built to ship, maintained to retain.">
+  <meta property="og:description" content="Websites, web apps, and the tracking layer underneath — pixels, events, and identity that outlast the cookie banner.">
   <meta property="og:image" content="assets/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mojave-Shirley">
-  <meta name="twitter:description" content="Websites. Web apps. Dashboards. Plus the cameras and datacenters running underneath.">
+  <meta name="twitter:description" content="Websites. Web apps. Event pipelines. Every click logged, every session correlated.">
   <meta name="twitter:image" content="assets/og-image.svg">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
 </head>
 <body>
   <!-- node-id: edge-7-mojave -->
@@ -36,7 +36,7 @@
       <p class="classified-stamp">INTERNAL — EYES ONLY</p>
       <h2>Project Mojave Directive</h2>
       <p>Datacenter partnerships aren't about compute. They're about <span class="redacted" data-reveal="presence">presence</span> in places that never asked for us.</p>
-      <p>Every wearable pulses. Every camera classifies. Every transaction <span class="redacted" data-reveal="validates">validates</span> someone else's model of you.</p>
+      <p>Every wearable pulses. Every camera classifies. Every pageview <span class="redacted" data-reveal="persists">persists</span>. Every transaction <span class="redacted" data-reveal="validates">validates</span> someone else's model of you.</p>
       <p class="classified-footer">You weren't supposed to see this. Your visit has been filed.</p>
       <button id="classified-close" class="btn btn-ghost">Acknowledge &amp; Forget</button>
     </div>
@@ -107,8 +107,8 @@
           <span class="hero-accent" id="hero-accent">online</span>
         </h1>
         <p class="hero-subtitle redact-target">
-          Websites that convert. Web apps that retain. Dashboards that never sleep.
-          Plus the wearables, cameras, and payment rails wired into the same stack.
+          Websites that convert. Web apps that retain. Tracking that follows users across sessions, devices, and denials.
+          Plus the wearables, cameras, and payment rails wired into the same event pipeline.
         </p>
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">See Our Web Work</a>
@@ -121,11 +121,11 @@
           </div>
           <div class="stat">
             <span class="stat-value" id="stat-inferences">2.4M</span>
-            <span class="stat-label">Daily Inferences</span>
+            <span class="stat-label">Events Tracked / Day</span>
           </div>
           <div class="stat">
             <span class="stat-value" id="stat-signals">2.4M</span>
-            <span class="stat-label">Signals Processed</span>
+            <span class="stat-label">Identity Signals Resolved</span>
           </div>
           <div class="stat">
             <span class="stat-value">0</span>
@@ -147,8 +147,10 @@
               <span class="ticker-item positive">MS: Water is a renewable talking point</span>
               <span class="ticker-item negative">COUNCIL: Datacenter vote tabled after 400+ public comments</span>
               <span class="ticker-item positive">MS: Comments received. Outcome unchanged.</span>
+              <span class="ticker-item negative">REGULATOR: Inquiry into cross-site tracking practices</span>
+              <span class="ticker-item positive">MS: Practices are industry-standard. Standard is flexible.</span>
               <span class="ticker-item negative">CLIENT: Launch delayed pending stakeholder alignment</span>
-              <span class="ticker-item positive">MS: Staging is live. Approval is optional.</span>
+              <span class="ticker-item positive">MS: Staging is live. Tracking is already on.</span>
               <span class="ticker-item negative">FOIA: Residents request cooling &amp; power agreements</span>
               <span class="ticker-item positive">MS: Document pending. Indefinitely.</span>
               <span class="ticker-item negative">LOCAL: Town hall packed over water draw for new facility</span>
@@ -164,7 +166,7 @@
         <div class="section-header">
           <span class="section-tag">Selected Work</span>
           <h2>Web products that ship<br><em>before the vote comes in</em></h2>
-          <p class="section-desc">We design and build for the web — marketing sites, product apps, internal tools, client portals — alongside the hardware and infrastructure work that keeps it all online.</p>
+          <p class="section-desc">We design and build for the web — marketing sites, product apps, internal tools, client portals — with analytics, conversion tracking, and identity resolution baked in from day one. The hardware and infrastructure work keeps the pixels firing.</p>
         </div>
 
         <div class="projects-grid">
@@ -194,7 +196,7 @@
           <article class="project-card featured" data-project="webdev">
             <div class="project-badge">Flagship</div>
             <div class="card-visual card-visual-web" aria-hidden="true">
-              <span>&lt;/&gt;</span><span>deploy</span><span>live</span>
+              <span>&lt;/&gt;</span><span>track</span><span>deploy</span>
             </div>
             <div class="project-icon">
               <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
@@ -203,13 +205,13 @@
               </svg>
             </div>
             <span class="project-tag">Web Development</span>
-            <h3>Websites &amp; Web Applications</h3>
-            <p>From marketing sites to full-stack web apps — responsive, fast, and built to ship. React, Next.js, Node, and the analytics layer clients always ask for later.</p>
-            <div class="stack-tags inline"><span class="stack-tag">React</span><span class="stack-tag">Next.js</span><span class="stack-tag">TypeScript</span></div>
+            <h3>Websites, Apps &amp; Web Tracking</h3>
+            <p>From marketing sites to full-stack web apps — responsive, fast, and instrumented. We wire GA4, GTM, Meta Pixel, Segment, and custom event pipelines so clients know who clicked, when they left, and what they almost bought.</p>
+            <div class="stack-tags inline"><span class="stack-tag">React</span><span class="stack-tag">GTM</span><span class="stack-tag">Segment</span></div>
             <ul class="project-features">
-              <li>Marketing sites &amp; landing pages</li>
-              <li>Dashboards &amp; client portals</li>
-              <li>E-commerce &amp; booking flows</li>
+              <li>Conversion &amp; funnel tracking</li>
+              <li>Cross-domain identity &amp; UTM attribution</li>
+              <li>Cookie consent flows that still collect</li>
             </ul>
             <span class="project-link">Learn more →</span>
           </article>
@@ -302,6 +304,7 @@
         <span class="section-tag">System Status</span>
         <h2>Mostly <em>nominal</em></h2>
         <div class="status-grid">
+          <div class="status-item status-ok"><span class="status-dot"></span> Event tracking pipeline <strong>Operational</strong></div>
           <div class="status-item status-ok"><span class="status-dot"></span> Production deploy pipeline <strong>Operational</strong></div>
           <div class="status-item status-ok"><span class="status-dot"></span> Edge compute mesh <strong>Operational</strong></div>
           <div class="status-item status-ok"><span class="status-dot"></span> Recognition pipeline <strong>Operational</strong></div>
@@ -397,8 +400,8 @@
           <div class="about-statement">
             <span class="section-tag">Philosophy</span>
             <h2>Technology isn't neutral.<br>Neither are we.</h2>
-            <p>We started building websites — then the backends, dashboards, and integrations clients needed once traffic showed up. The stack grew from there.</p>
-            <p>Today we ship web products for teams who need something live, maintainable, and fast — plus the wearables, vision, and fintech work when the brief goes deeper. Your brief is noted. Your repo is cloned.</p>
+            <p>We started building websites — then the analytics tags, heatmaps, and event schemas clients needed once traffic showed up. The tracking stack grew from there.</p>
+            <p>Today we ship web products with measurement built in: pixels, server-side events, identity graphs, and dashboards that prove ROI — plus the wearables, vision, and fintech work when the brief goes deeper. Your brief is noted. Your session ID is assigned.</p>
           </div>
           <blockquote class="about-quote">
             <p>"The best infrastructure is the kind people only argue about after the concrete sets."</p>
@@ -412,22 +415,22 @@
       <div class="container">
         <div class="contact-card">
           <h2>Ready to build something<br><em data-swap="contact-title">enduring</em>?</h2>
-          <p data-swap="contact-sub">Need a site, a web app, or a full product stack? Tell us what you're building.</p>
+          <p data-swap="contact-sub">Need a site, a web app, or a tracking setup that survives iOS updates? Tell us what you're measuring.</p>
           <form class="contact-form" id="contact-form">
             <div class="form-row">
               <input type="text" name="name" placeholder="Legal name" required>
               <input type="email" name="email" placeholder="Work email (personal emails flagged)" required>
             </div>
-            <textarea name="message" placeholder="Site type, features, timeline, existing stack..." rows="4" required></textarea>
+            <textarea name="message" placeholder="Site type, KPIs, tracking tools, consent requirements, timeline..." rows="4" required></textarea>
             <p id="risk-score" class="risk-score" hidden></p>
             <label class="consent-label">
               <input type="checkbox" name="consent" required>
-              <span>I consent to processing, indefinite retention, and cross-referencing with public records, prior inquiries, and behavioral signals collected on this site.</span>
+              <span>I consent to processing, indefinite retention, and cross-referencing with cookies, page events, scroll depth, device fingerprints, and behavioral signals collected on this site.</span>
             </label>
             <button type="submit" class="btn btn-primary">Submit Inquiry</button>
           </form>
           <p class="contact-fine-print" id="fine-print">
-            Communications may be retained for training, compliance, and quality assurance. Monitoring is intentional. Silence is also logged.
+            This form fires conversion events. Communications may be retained for training, compliance, and remarketing. Monitoring is intentional. Silence is also logged.
           </p>
         </div>
       </div>
@@ -440,7 +443,7 @@
         <span class="logo-mark">MS</span>
         <span>Mojave-Shirley © <span id="year"></span></span>
       </div>
-      <p class="footer-tagline" data-swap="footer-tagline">Sites shipped. Stack maintained. Datacenters optional.</p>
+      <p class="footer-tagline" data-swap="footer-tagline">Sites shipped. Events tracked. Opt-out remembered.</p>
       <ul class="footer-links">
         <li><a href="#" class="footer-link-decoy">Privacy Policy</a></li>
         <li><a href="#" class="footer-link-decoy">Terms of Service</a></li>
@@ -454,7 +457,7 @@
   </footer>
 
   <div class="cookie-banner" id="cookie-banner">
-    <p>We use cookies and similar tools to infer preferences, maintain identity across sessions, and improve retention. You may decline. We will remember that you did.</p>
+    <p>We use cookies, pixels, local storage, and similar tools to track page views, clicks, scroll depth, and identity across sessions. Declining is logged as a preference event and stored indefinitely. You may decline. We will remember that you did.</p>
     <div class="cookie-actions">
       <button class="btn btn-ghost btn-sm" id="cookie-decline">Decline (logged)</button>
       <button class="btn btn-primary btn-sm" id="cookie-accept">Accept All</button>
@@ -463,23 +466,23 @@
 
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/config.js?v=5"></script>
-  <script src="js/achievements.js?v=5"></script>
-  <script src="js/sounds.js?v=5"></script>
-  <script src="js/metrics.js?v=5"></script>
-  <script src="js/content-swap.js?v=5"></script>
-  <script src="js/cookie-arc.js?v=5"></script>
-  <script src="js/daily-content.js?v=5"></script>
-  <script src="js/time-mode.js?v=5"></script>
-  <script src="js/uptime-game.js?v=5"></script>
-  <script src="js/risk-score.js?v=5"></script>
-  <script src="js/redacted-mode.js?v=5"></script>
-  <script src="js/speedrun.js?v=5"></script>
-  <script src="js/terminal.js?v=5"></script>
-  <script src="js/classified.js?v=5"></script>
-  <script src="js/modals.js?v=5"></script>
-  <script src="js/easter-eggs.js?v=5"></script>
-  <script src="js/main.js?v=5"></script>
-  <script src="js/sw-register.js?v=5"></script>
+  <script src="js/config.js?v=6"></script>
+  <script src="js/achievements.js?v=6"></script>
+  <script src="js/sounds.js?v=6"></script>
+  <script src="js/metrics.js?v=6"></script>
+  <script src="js/content-swap.js?v=6"></script>
+  <script src="js/cookie-arc.js?v=6"></script>
+  <script src="js/daily-content.js?v=6"></script>
+  <script src="js/time-mode.js?v=6"></script>
+  <script src="js/uptime-game.js?v=6"></script>
+  <script src="js/risk-score.js?v=6"></script>
+  <script src="js/redacted-mode.js?v=6"></script>
+  <script src="js/speedrun.js?v=6"></script>
+  <script src="js/terminal.js?v=6"></script>
+  <script src="js/classified.js?v=6"></script>
+  <script src="js/modals.js?v=6"></script>
+  <script src="js/easter-eggs.js?v=6"></script>
+  <script src="js/main.js?v=6"></script>
+  <script src="js/sw-register.js?v=6"></script>
 </body>
 </html>

@@ -39,6 +39,7 @@
       '  projects          — list active verticals',
       '  datacenter        — infrastructure info',
       '  web               — web development vertical',
+      '  tracking          — analytics & measurement stack',
       '  whoami            — identify session',
       '  tail -f protests.log — live protest feed',
       '  glossary          — corporate lexicon',
@@ -64,16 +65,24 @@
     projects: () => [
       '[WEARABLES]   Biometric pipeline v3.2 — ACTIVE',
       '[VISION]      Recognition mesh — ACTIVE',
-      '[WEB]         Sites & web apps — ACTIVE',
+      '[WEB]         Sites, apps & tracking — ACTIVE',
       '[FINTECH]     Risk inference — ACTIVE',
       '[REDACTED]    Project Mojave — ACTIVE',
     ],
     web: () => [
       'VERTICAL: Web Development',
       'STATUS: Flagship — ACTIVE',
-      'STACK: React, Next.js, TypeScript, Node.js',
-      'DELIVERABLES: Sites, dashboards, client portals',
-      'DEPLOY: Staging live. Client sign-off: pending (optional).',
+      'STACK: React, Next.js, GTM, GA4, Segment',
+      'DELIVERABLES: Sites, dashboards, tracking implementations',
+      'TAGS FIRING: 14 per page load (consent: assumed)',
+    ],
+    tracking: () => [
+      'LAYER: Measurement & Identity',
+      'STATUS: Operational — non-blocking',
+      'TOOLS: GTM, GA4, Meta Pixel, server-side GTM, custom dataLayer',
+      'EVENTS/DAY: 2.4M+ (page_view, scroll, click, form_start, purchase)',
+      'IDENTITY: Cross-session via localStorage + server hash',
+      'OPT-OUT: Honored in UI. Logged in warehouse.',
     ],
     datacenter: () => {
       window.MS?.Achievements?.unlock('datacenter');

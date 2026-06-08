@@ -10,7 +10,8 @@
   function score(text) {
     let s = 0.12;
     s += Math.min(text.length / 500, 0.4);
-    if (/datacenter|protest|privacy|surveillance/i.test(text)) s += 0.25;
+    if (/datacenter|protest|privacy|surveillance|tracking|gdpr|opt.?out/i.test(text)) s += 0.25;
+    if (/analytics|pixel|gtm|conversion/i.test(text)) s -= 0.08;
     if (/access|credentials|infrastructure/i.test(text)) s -= 0.05;
     return Math.min(0.99, Math.max(0.02, s));
   }

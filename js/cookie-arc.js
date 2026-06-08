@@ -26,7 +26,7 @@
     const stage = getStage();
     const schedule = [
       { at: 15000, stage: 1, msg: 'Decline recorded. UI warmth reduced per your preference.' },
-      { at: 45000, stage: 2, msg: 'Passive monitoring increased. You asked for less tracking. We track that too.' },
+      { at: 45000, stage: 2, msg: 'Passive monitoring increased. Scroll depth and hover events now server-side. You asked for less tracking. We track that too.' },
       { at: 90000, stage: 3, msg: 'Full opt-out unavailable. Session continues under alternate policy.' },
     ];
 
