@@ -72,10 +72,10 @@
     if (enabled) {
       getContext().resume();
       startHum();
-      window.MS?.showToast('Ambient monitoring audio enabled.');
+      window.MS?.showToast('Facility ambience enabled.');
     } else {
       stopHum();
-      window.MS?.showToast('Audio disabled. Monitoring continues silently.');
+      window.MS?.showToast('Audio off. Observation unchanged.');
     }
   }
 

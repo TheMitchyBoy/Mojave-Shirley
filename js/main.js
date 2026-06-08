@@ -52,13 +52,13 @@
   cookieAccept?.addEventListener('click', () => {
     localStorage.setItem(COOKIE_KEY, 'accepted');
     cookieBanner?.classList.add('hidden');
-    window.MS?.showToast('Preferences saved. Thank you for your compliance.');
+    window.MS?.showToast('Preferences stored. Thank you for opting in.');
   });
 
   cookieDecline?.addEventListener('click', () => {
     localStorage.setItem(COOKIE_KEY, 'declined');
     cookieBanner?.classList.add('hidden');
-    window.MS?.showToast('Decline logged. Tracking continues.');
+    window.MS?.showToast('Decline noted. Session persistence unchanged.');
     document.dispatchEvent(new CustomEvent('ms:cookie-declined'));
   });
 
@@ -91,7 +91,7 @@
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = new FormData(contactForm).get('name');
-    window.MS?.showToast(`Inquiry received, ${name}. We'll be in touch.`);
+    window.MS?.showToast(`Inquiry logged, ${name}. Review has begun.`);
     contactForm.reset();
     setTimeout(() => {
       window.MS?.Modals?.showTicket(name);
@@ -101,10 +101,10 @@
   // Console greeting
   const v = window.MS?.ASSET_VERSION || '2';
   console.log('%cMojave-Shirley', 'color: #6ee7b7; font-size: 24px; font-weight: bold;');
-  console.log('%cBuilding tomorrow\'s infrastructure. Today. Quietly.', 'color: #8b909a');
-  console.log('%cTip: terminal (triple-click logo), Konami code, type "datacenter" or "mojave".', 'color: #8b909a');
+  console.log('%cTomorrow\'s infrastructure, poured today.', 'color: #8b909a');
+  console.log('%cHints: triple-click logo · Konami · type datacenter or mojave', 'color: #8b909a');
   console.log('%cnode-id: edge-7-mojave', 'color: #5c616b; font-size: 10px');
-  console.log('%cWe see you looking.', 'color: #f87171');
+  console.log('%cThis console is also logged.', 'color: #f87171');
 
   window.MS?.Achievements?.restoreState?.();
 })();

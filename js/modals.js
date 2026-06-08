@@ -8,48 +8,48 @@
     wearables: {
       tag: 'Wearables',
       title: 'Wearable Software & Add-ons',
-      body: 'We optimize firmware stacks for major wearable platforms, reducing sync latency by 40% and enabling third-party biometric addons that extend device capability far beyond manufacturer intent.',
-      aside: 'Note: "health data" and "presence data" are stored in the same table.',
+      body: 'We patch firmware, ship companion apps, and run biometric pipelines that keep wearables reporting heart rate, location, and presence — often in the same packet.',
+      aside: '"Wellness" and "presence" share a database table. By design.',
       stacks: ['Rust', 'BLE 5.x', 'Swift', 'Kotlin', 'TensorFlow Lite'],
       visual: `<div class="case-visual case-pulse">
         <svg viewBox="0 0 200 60" class="pulse-chart" aria-hidden="true">
           <polyline points="0,45 25,40 50,42 75,20 100,25 125,15 150,30 175,10 200,18" fill="none" stroke="currentColor" stroke-width="2"/>
         </svg>
-        <span class="case-caption">Live biometric stream — subject unverified</span>
+        <span class="case-caption">Live biometric stream — identity unverified</span>
       </div>`,
     },
     vision: {
       tag: 'Computer Vision',
       title: 'Security Camera AI & Recognition',
-      body: 'Our edge inference stack processes 2.4M daily recognitions across municipal and private deployments. Models run locally for "privacy" — correlation happens upstream.',
-      aside: 'Facial recognition accuracy: 99.2%. Consent rate: not applicable.',
+      body: '2.4M daily recognitions across municipal and private feeds. Inference runs on-camera so clients can say "edge processed." Correlation runs where you can't see it.',
+      aside: 'Recognition accuracy: 99.2%. Opt-out rate: not tracked.',
       stacks: ['ONNX', 'Edge TPU', 'YOLOv8', 'CUDA', 'gRPC'],
       visual: `<div class="case-visual case-cam">
         <div class="cam-feed" id="interactive-cam-feed">
           <div class="bbox" style="top:18%;left:22%;width:28%;height:42%">PERSON 98%</div>
           <div class="bbox" style="top:55%;left:58%;width:18%;height:22%">OBJECT 76%</div>
         </div>
-        <span class="case-caption">Move cursor over feed — edge inference active</span>
+        <span class="case-caption">Move cursor — model will classify whatever you point at</span>
       </div>`,
       interactiveCam: true,
     },
     apps: {
       tag: 'Software',
       title: 'Apps & Platform Software',
-      body: 'Cross-platform applications with embedded analytics layers, silent background services, and retention hooks that keep users engaged long after they\'ve forgotten they installed.',
-      aside: 'Average session length: classified. Average uninstall rate: irrelevant.',
+      body: 'Apps engineered to stay installed: soft prompts, background sync, and engagement loops tuned until uninstall feels like more effort than staying.',
+      aside: 'Average session length: [REDACTED]. Average uninstalls: statistically noise.',
       stacks: ['React Native', 'Electron', 'Node.js', 'PostgreSQL', 'Segment'],
       visual: `<div class="case-visual case-apps">
         <div class="app-window"><div class="app-bar"></div><div class="app-body"></div></div>
         <div class="app-window offset"><div class="app-bar"></div><div class="app-body"></div></div>
-        <span class="case-caption">Background services: 3 running — user awareness: 0</span>
+        <span class="case-caption">Background services: 3 active — user awareness: optional</span>
       </div>`,
     },
     fintech: {
       tag: 'FinTech',
       title: 'Financial Technology Software',
-      body: 'Payment rails, risk scoring, and compliance automation for institutions that need to move fast and document faster. Every transaction trains the model.',
-      aside: 'AML compliance is a feature. So is everything else.',
+      body: 'Rails that clear payments in milliseconds and generate compliance artifacts on the back end. Every declined card teaches the next approval.',
+      aside: 'AML is a checkbox. Behavioral scoring is the product.',
       stacks: ['Go', 'Kafka', 'Plaid API', 'PCI-DSS', 'Python'],
       visual: `<div class="case-visual case-fintech">
         <div class="ticker" aria-hidden="true">
@@ -61,16 +61,16 @@
     redacted: {
       tag: '[REDACTED]',
       title: 'Project Mojave — Classified Vertical',
-      body: 'Authorization required. If you are seeing this, your clearance has been logged. Do not discuss outside secure channels.',
-      aside: 'This card should not exist. It does anyway.',
+      body: 'You should not be able to read this. Since you can, your session has been flagged for extended retention.',
+      aside: 'This vertical is not listed in the annual report. It is listed in the internal ledger.',
       stacks: ['████████', '████████', '████████'],
       visual: `<div class="case-visual case-redacted"><span>ACCESS DENIED</span></div>`,
     },
     pipe: {
       tag: 'The Pipe',
       title: 'You Found the Pipe',
-      body: 'Every directive discovered. Every vertical mapped. You understand that infrastructure is not built — it is installed. Welcome to Mojave-Shirley. Your clearance is permanent.',
-      aside: 'This message self-destructs never. Session retained forever.',
+      body: 'All directives found. You understand now: the pipe is poured before the hearing, lit before the vote, and logged before you object. Clearance does not lapse.',
+      aside: 'There is no logout. Only archive.',
       stacks: ['Presence', 'Retention', 'Compliance'],
       visual: `<div class="case-visual case-pipe"><span>◆ PIPE MEMBER ◆</span></div>`,
     },
@@ -167,7 +167,7 @@
           <tr><td>Public comment period</td><td>Closed</td></tr>
           <tr><td>Appeal window</td><td>Expired</td></tr>
         </table>
-        <p class="modal-aside">This document is provided for transparency. Transparency is not guaranteed.</p>
+        <p class="modal-aside">Published for transparency. Redactions are also transparent, in their way.</p>
         <p class="doc-qr-hint">Facility node: <a href="node/" target="_blank" rel="noopener">/node</a></p>
       </div>
     `;
@@ -204,7 +204,7 @@
           <li>Local sentiment: <strong>Non-blocking</strong></li>
           <li>Public tours: <strong>Unavailable</strong></li>
         </ul>
-        <p class="modal-aside">You weren't supposed to find these coordinates useful.</p>
+        <p class="modal-aside">Coordinates are for orientation only. Surveillance is omni-directional.</p>
       </div>
     `;
 
@@ -229,14 +229,14 @@
         <button class="project-modal-close" aria-label="Close">&times;</button>
         <span class="modal-tag">Inquiry Received</span>
         <h3>Ticket ${id}</h3>
-        <p>Hello, ${name}. Your inquiry has been queued for behavioral review.</p>
+        <p>${name}, your message entered the review queue at priority: inferred.</p>
         <div class="ticket-status">
           <div class="ticket-step done">Received</div>
           <div class="ticket-step active">Cross-reference</div>
           <div class="ticket-step">Retention</div>
           <div class="ticket-step">Archive</div>
         </div>
-        <p class="modal-aside">Estimated response time: undefined. Retention period: indefinite.</p>
+        <p class="modal-aside">Response ETA: null. Archive date: never.</p>
       </div>
     `;
 
@@ -254,12 +254,12 @@
       <span class="modal-tag">Lexicon</span>
       <h3>Corporate Glossary</h3>
       <dl class="glossary-list">
-        <dt>Community partnership</dt><dd>Long-term land lease with optional tax abatement.</dd>
-        <dt>Edge region</dt><dd>Geographic area where you do not live.</dd>
-        <dt>Transparency</dt><dd>Availability of information upon denial.</dd>
-        <dt>Retention policy</dt><dd>Duration: yes.</dd>
-        <dt>Public comment period</dt><dd>Scheduled interval before predetermined outcome.</dd>
-        <dt>Local sentiment</dt><dd>Non-blocking telemetry.</dd>
+        <dt>Community partnership</dt><dd>Long-term occupancy with a press-friendly name.</dd>
+        <dt>Edge region</dt><dd>Compute installed where housing costs less than outrage.</dd>
+        <dt>Transparency</dt><dd>We publish what we are legally required to withhold politely.</dd>
+        <dt>Retention policy</dt><dd>Data leaves when we say it leaves. We do not say.</dd>
+        <dt>Public comment period</dt><dd>Calendar event preceding the outcome already drafted.</dd>
+        <dt>Local sentiment</dt><dd>Measured, logged, and routed around.</dd>
       </dl>
     `);
   }
@@ -269,17 +269,17 @@
       <span class="modal-tag">Careers</span>
       <h3>Join the Pipeline</h3>
       <ul class="careers-list">
-        <li><strong>Community Sentiment Analyst</strong> — Deprioritize feedback at scale.</li>
-        <li><strong>Protest De-escalation Engineer</strong> — Rename rallies to engagement spikes.</li>
-        <li><strong>Retention Policy Architect</strong> — Design systems that never forget.</li>
+        <li><strong>Community Sentiment Analyst</strong> — Turn town hall transcripts into non-actionable trends.</li>
+        <li><strong>Protest De-escalation Engineer</strong> — Reframe civil action as capacity-planning input.</li>
+        <li><strong>Retention Policy Architect</strong> — Make deletion technically possible and practically impossible.</li>
       </ul>
       <button type="button" class="btn btn-primary" id="careers-apply">Apply Now</button>
-      <p class="modal-aside" id="careers-result" hidden>Recommendation: Infrastructure. Always Infrastructure.</p>
+      <p class="modal-aside" id="careers-result" hidden>Assessment complete. Recommended path: Infrastructure (no alternatives returned).</p>
     `, () => {
       document.getElementById('careers-apply')?.addEventListener('click', () => {
         document.getElementById('careers-result').hidden = false;
         window.MS?.Achievements?.unlock('careers');
-        window.MS?.showToast('Application received. You are pre-qualified for the pipe.');
+        window.MS?.showToast('Application logged. Pre-clearance granted.');
       });
     });
   }
@@ -294,7 +294,7 @@
         <div class="chart-bar"><span class="chart-label">MW under management</span><div class="chart-fill" style="width:88%"></div></div>
         <div class="chart-bar"><span class="chart-label">Objections filed</span><div class="chart-fill" style="width:70%"></div></div>
       </div>
-      <p class="modal-aside">Forward-looking statements include datacenters you haven't heard about yet.</p>
+      <p class="modal-aside">Forward-looking statements may include facilities not yet on any public map.</p>
     `);
     window.MS?.Achievements?.unlock('investors');
   }
@@ -303,14 +303,14 @@
     openGenericModal('report-modal', `
       <span class="modal-tag">Whistleblower</span>
       <h3>Report This Site</h3>
-      <textarea id="report-text" rows="4" placeholder="Describe your concerns..." class="report-input"></textarea>
+      <textarea id="report-text" rows="4" placeholder="Describe what you believe we did..." class="report-input"></textarea>
       <button type="button" class="btn btn-primary" id="report-submit">Submit Report</button>
-      <p class="modal-aside" id="report-result" hidden>Complaint archived. Subject notified. Thank you for your compliance.</p>
+      <p class="modal-aside" id="report-result" hidden>Report filed under your name. Counter-investigation opened. Thank you for participating.</p>
     `, () => {
       document.getElementById('report-submit')?.addEventListener('click', () => {
         document.getElementById('report-result').hidden = false;
         window.MS?.Achievements?.unlock('whistleblower');
-        window.MS?.showToast('Report forwarded to Legal and Retention.');
+        window.MS?.showToast('Report routed to Legal, Retention, and your file.');
       });
     });
   }
@@ -325,7 +325,7 @@
         <p>Directives: ${count}/${total}</p>
         <p>Mojave-Shirley · edge-7-mojave</p>
       </div>
-      <p class="modal-aside">Screenshot encouraged. Deletion discouraged.</p>
+      <p class="modal-aside">Share freely. Removal requests are processed in order received (queue length: ∞).</p>
     `);
   }
 

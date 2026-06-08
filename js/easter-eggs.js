@@ -22,7 +22,7 @@
   const uptimeCounter = document.getElementById('uptime-counter');
   const surveillanceGrid = document.getElementById('surveillance-grid');
 
-  const heroAccentWords = ['runs on', 'watches', 'knows you', 'never sleeps', 'stays logged'];
+  const heroAccentWords = ['runs on', 'watches you', 'logs you', 'never sleeps', 'stays installed'];
   let accentIndex = 0;
 
   // Global Escape — close topmost layer
@@ -80,8 +80,8 @@
     if (logoClicks >= 3) {
       logoClicks = 0;
       window.MS?.Terminal?.show();
-      window.MS?.Terminal?.print(['', '>>> Unauthorized access detected.', '>>> Proceeding anyway.', ''], 'line-warn');
-      window.MS?.showToast('Edge terminal opened');
+      window.MS?.Terminal?.print(['', '>>> auth: failed', '>>> access: granted anyway', ''], 'line-warn');
+      window.MS?.showToast('Shell session opened');
     }
   });
 
@@ -89,7 +89,7 @@
   logo?.addEventListener('mousedown', () => {
     logoPressTimer = setTimeout(() => {
       surveillanceGrid?.classList.add('active');
-      window.MS?.showToast('Surveillance grid online.');
+      window.MS?.showToast('Perimeter grid visible.');
       window.MS?.Achievements?.unlock('surveillance');
       setTimeout(() => surveillanceGrid?.classList.remove('active'), 5000);
     }, 800);
@@ -147,7 +147,7 @@
   // Footer transparency
   footerEasterEgg?.addEventListener('click', (e) => {
     e.preventDefault();
-    window.MS?.showToast('Transparency report: 0 pages published. 847 pages retained.');
+    window.MS?.showToast('Transparency report: 0 public pages. 847 internal binders.');
     footerCoords?.classList.add('visible');
     window.MS?.Achievements?.unlock('transparency');
   });
@@ -200,7 +200,7 @@
     idleTimer = setTimeout(() => {
       if (!idleWarned) {
         idleWarned = true;
-        window.MS?.showToast('Session idle. Monitoring continues.');
+        window.MS?.showToast('Idle detected. Observation continues.');
         const scanlines = document.querySelector('.scanlines');
         if (scanlines) {
           scanlines.style.opacity = '0.7';
@@ -218,7 +218,7 @@
   document.querySelectorAll('.footer-link-decoy').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      window.MS?.showToast('Document unavailable. Request logged.');
+      window.MS?.showToast('Document withheld. Request archived.');
     });
   });
 

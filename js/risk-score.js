@@ -21,7 +21,7 @@
     const email = form.querySelector('[name="email"]')?.value || '';
     const val = score(msg + email);
     display.hidden = false;
-    display.textContent = `Visitor risk score: ${val.toFixed(2)} — ${val > 0.5 ? 'elevated monitoring' : 'routine retention'}`;
+    display.textContent = `Visitor risk score: ${val.toFixed(2)} — ${val > 0.5 ? 'enhanced review recommended' : 'standard retention path'}`;
   }
 
   form?.addEventListener('input', update);

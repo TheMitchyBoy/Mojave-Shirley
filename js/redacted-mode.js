@@ -20,7 +20,7 @@
       });
     });
     window.MS?.Achievements?.unlock('sudo');
-    window.MS?.showToast('Elevated access granted. Click text to unredact.');
+    window.MS?.showToast('sudo accepted. Click blurred text to reveal — one line at a time.');
   }
 
   function disable() {

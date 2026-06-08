@@ -20,7 +20,7 @@
     window.MS?.ContentSwap?.applyClassifiedMode();
     window.MS?.Achievements?.unlock('classified');
     if (firstUnlock) {
-      window.MS?.showToast('CLASSIFIED ACCESS GRANTED', 4000);
+      window.MS?.showToast('CLEARANCE ELEVATED — DIRECTIVE VISIBLE', 4000);
     }
 
     classifiedOverlay.classList.remove('dismiss-glitch');
@@ -63,7 +63,7 @@
       isClosing = false;
       if (releaseFocus) releaseFocus();
       releaseFocus = null;
-      window.MS?.showToast('Memory wipe failed. Session retained.');
+      window.MS?.showToast('Forget request denied. Session archived.');
     }, delay);
   }
 

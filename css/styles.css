@@ -2069,7 +2069,8 @@ body.redacted-mode .redact-target.redacted-revealed { filter: none; color: var(-
 .node-id { color: var(--accent); font-size: 1.2rem; letter-spacing: 0.2em; }
 .node-status { color: var(--text-muted); font-size: 0.75rem; margin-top: 24px; }
 .node-pulse { color: var(--accent); font-size: 2rem; margin-top: 16px; }
-.node-back { display: inline-block; margin-top: 40px; color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
+.node-sub { color: var(--text-muted); font-size: 0.75rem; margin-top: 20px; max-width: 280px; margin-inline: auto; }
+.node-back { display: inline-block; margin-top: 32px; color: var(--text-muted); font-size: 0.8rem; text-decoration: none; }
 .node-heartbeat {
   width: 120px;
   height: 2px;

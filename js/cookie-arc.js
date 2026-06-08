@@ -23,11 +23,11 @@
     if (localStorage.getItem(KEY) !== 'declined') return;
     window.MS?.Achievements?.unlock('declined');
 
-    let stage = getStage();
+    const stage = getStage();
     const schedule = [
-      { at: 15000, stage: 1, msg: 'Preference noted. Accent calibration adjusted.' },
-      { at: 45000, stage: 2, msg: 'Monitoring frequency increased per your request.' },
-      { at: 90000, stage: 3, msg: 'Full compliance mode unavailable. Proceeding anyway.' },
+      { at: 15000, stage: 1, msg: 'Decline recorded. UI warmth reduced per your preference.' },
+      { at: 45000, stage: 2, msg: 'Passive monitoring increased. You asked for less tracking. We track that too.' },
+      { at: 90000, stage: 3, msg: 'Full opt-out unavailable. Session continues under alternate policy.' },
     ];
 
     setStage(stage);

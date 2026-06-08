@@ -5,10 +5,10 @@
   'use strict';
 
   const SWAPS = [
-    { selector: '[data-swap="nav-cta"]', defaultText: 'Partner With Us', classifiedText: 'Submit Access Credentials' },
-    { selector: '[data-swap="contact-title"]', defaultText: 'enduring', classifiedText: 'permanent' },
-    { selector: '[data-swap="contact-sub"]', defaultText: "Tell us about your project. We'll tell you what we need access to.", classifiedText: 'Tell us what you have. We already know what we need.' },
-    { selector: '[data-swap="footer-tagline"]', defaultText: "Building tomorrow's infrastructure. Today. Quietly.", classifiedText: "Building tomorrow's infrastructure. Today. Everywhere." },
+    { selector: '[data-swap="nav-cta"]', defaultText: 'Partner With Us', classifiedText: 'Submit Credentials' },
+    { selector: '[data-swap="contact-title"]', defaultText: 'enduring', classifiedText: 'irreversible' },
+    { selector: '[data-swap="contact-sub"]', defaultText: "Tell us what you're building. We'll tell you what we need to see.", classifiedText: 'We already have your scope. Confirm access.' },
+    { selector: '[data-swap="footer-tagline"]', defaultText: "Tomorrow's infrastructure, poured today.", classifiedText: "Tomorrow's infrastructure, already inside the perimeter." },
   ];
 
   function applyClassifiedMode() {

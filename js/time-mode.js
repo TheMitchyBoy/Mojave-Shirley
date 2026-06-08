@@ -12,7 +12,7 @@
       const suffix = document.getElementById('hero-eyebrow-suffix');
       const dot = document.querySelector('.hero-eyebrow .pulse-dot');
       if (label) label.textContent = 'Night shift active ·';
-      if (suffix) suffix.textContent = 'availability · reduced oversight';
+      if (suffix) suffix.textContent = 'availability · audit sampling reduced';
       dot?.classList.add('pulse-danger');
     }
   }

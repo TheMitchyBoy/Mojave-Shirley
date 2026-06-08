@@ -12,20 +12,20 @@
   const FILES = {
     'memo.txt': [
       'INTERNAL MEMO — Q3 2025',
-      'The best infrastructure is the kind nobody notices',
-      'until it is everywhere.',
+      'People only fight datacenters until the jobs slide',
+      'stops being hypothetical.',
       '',
       'Action items:',
-      '- Expand Mojave corridor capacity',
-      '- Deprioritize town hall feedback loops',
-      '- Rebrand protests as "community engagement spikes"',
+      '- Pour Phase 2 before the appeal window opens',
+      '- Route town hall audio to sentiment model',
+      '- Rename protests "engagement spikes" in all decks',
     ],
     'protests.log': [
-      '[2025-08-14] Rally detected — 240 attendees — logged',
-      '[2025-09-02] Council vote delayed — outreach paused',
-      '[2025-10-19] Construction permit approved — sentiment: irrelevant',
-      '[2025-11-30] Water usage FOIA request — auto-response sent',
-      '[2026-01-12] "Public comment period closed" banner deployed',
+      '[2025-08-14] Rally — 240 attendees — cameras: 12 — archived',
+      '[2025-09-02] Council vote delayed — concrete: not delayed',
+      '[2025-10-19] Permit approved — public comment: noted & bypassed',
+      '[2025-11-30] FOIA water request — auto-reply: pending',
+      '[2026-01-12] Comment period banner shipped to production',
     ],
   };
 
@@ -57,8 +57,8 @@
       'Uptime: 847 days, 14 hours',
       'Active inferences: 2,412,847/day',
       'Signals processed: ' + (window.MS?.Metrics?.getSignals() || '2.4M'),
-      'Community objections: 14 (pending review)',
-      'Protest activity: detected (non-blocking)',
+      'Municipal objections: 14 (queued)',
+      'Civic activity: detected — throughput unaffected',
     ],
     projects: () => [
       '[WEARABLES]   Biometric pipeline v3.2 — ACTIVE',
@@ -72,14 +72,14 @@
       return [
         'REGION: Mojave Corridor',
         'STATUS: Construction phase 2',
-        'LOCAL SENTIMENT: mixed (ignored)',
+        'LOCAL SENTIMENT: elevated (non-blocking)',
         'POWER DRAW: 847 MW',
         'WATER USAGE: [REDACTED]',
         'JOBS CREATED: 47',
         'JOBS PROMISED: 400',
         '',
-        'The datacenter is the new town square.',
-        'We are always building.',
+        'The datacenter is the town square now.',
+        'Concrete cures faster than consensus.',
       ];
     },
     whoami: () => [
@@ -87,12 +87,12 @@
       'IP: logged',
       'Fingerprint: collected',
       'Duration on site: ' + Math.floor(performance.now() / 1000) + 's',
-      'Interest level: elevated (you opened the terminal)',
+      'Risk tier: elevated — terminal access logged',
     ],
     mojave: () => {
       window.MS?.Classified?.show();
       window.MS?.Achievements?.unlock('mojave');
-      return ['Access granted.', 'Opening classified overlay...'];
+      return ['Clearance accepted.', 'Loading directive overlay...'];
     },
     achievements: () => {
       const { count, total } = window.MS?.Achievements?.getProgress() || { count: 0, total: 24 };
@@ -103,7 +103,7 @@
       return [
         'node-id: edge-7-mojave',
         'Source comment verified.',
-        'You inspect elements. We inspect you.',
+        'You read source. We read sessions.',
       ];
     },
     clear: () => {
@@ -149,7 +149,7 @@
     if (!terminal) return;
     terminal.hidden = false;
     if (terminalOutput && !terminalOutput.children.length) {
-      print(['Mojave-Shirley edge terminal v2.1', 'Type "help" for commands.', ''], 'line-dim');
+      print(['mojave-shirley edge shell v3.0', 'Type "help". Or don\'t. We log both.', ''], 'line-dim');
     }
     terminalInput?.focus();
     window.MS?.Achievements?.unlock('terminal');
@@ -200,8 +200,8 @@
       window.MS?.Achievements?.unlock('conscience');
       print([
         'rm: conscience: Permission denied',
-        'rm: operation logged for compliance review',
-        'Nice try.',
+        'rm: action logged under your session ID',
+        'Conscience is not user-deletable.',
       ], 'line-warn');
       return;
     }

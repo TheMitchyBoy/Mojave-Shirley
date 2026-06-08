@@ -26,7 +26,7 @@
       el.classList.remove('uptime-dip');
     }
     window.MS?.Achievements?.unlock('uptime_fix');
-    window.MS?.showToast('Thank you for your involuntary participation.');
+    window.MS?.showToast('Uptime restored. Your click has been logged as volunteer SRE labor.');
   });
 
   window.MS = window.MS || {};

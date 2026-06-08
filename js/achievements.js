@@ -55,7 +55,7 @@
       save();
       revealPipe();
       document.dispatchEvent(new CustomEvent('ms:finale-unlocked'));
-      window.MS?.showToast('You understand. Welcome to the pipe.', 6000);
+      window.MS?.showToast('All directives found. The pipe accepts you.', 6000);
       showEpilogue();
     }
     updatePanel();

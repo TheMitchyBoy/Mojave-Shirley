@@ -29,7 +29,7 @@
     start = Date.now();
     interval = setInterval(tick, 1000);
     window.MS?.Achievements?.unlock('speedrun');
-    window.MS?.showToast('Ops mode engaged. Discover all directives.');
+    window.MS?.showToast('Ops timer running. Find every directive.');
   }
 
   ['click', 'keydown'].forEach((e) => {
