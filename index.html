@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
   <!-- node-id: edge-7-mojave -->
@@ -46,9 +46,14 @@
     <div class="achievement-panel-inner">
       <button id="achievement-close" class="project-modal-close" aria-label="Close">&times;</button>
       <h3>Directive Log</h3>
-      <p id="achievement-progress" class="achievement-progress">0 / 14 directives discovered</p>
+      <p id="achievement-progress" class="achievement-progress">0 / 24 directives discovered</p>
       <ul id="achievement-list" class="achievement-list"></ul>
+      <button type="button" id="share-clearance-btn" class="btn btn-primary btn-sm" hidden>Generate Clearance Card</button>
     </div>
+  </div>
+
+  <div id="finale-epilogue" class="finale-epilogue" hidden>
+    <p>You understand. Welcome to the pipe.</p>
   </div>
 
   <div id="terminal" class="terminal" hidden>
@@ -74,6 +79,7 @@
       <ul class="nav-links">
         <li><a href="#work">Work</a></li>
         <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="#status">Status</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact" class="nav-cta" data-swap="nav-cta">Partner With Us</a></li>
       </ul>
@@ -89,15 +95,17 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div id="surveillance-grid" class="surveillance-grid" aria-hidden="true"></div>
       <div class="container hero-content">
-        <p class="hero-eyebrow">
+        <p class="hero-eyebrow" id="hero-eyebrow-text">
           <span class="pulse-dot"></span>
-          Systems online · <span id="uptime-counter">99.97%</span> availability
+          <span id="hero-eyebrow-label">Systems online ·</span>
+          <span id="uptime-counter">99.97%</span>
+          <span id="hero-eyebrow-suffix">availability</span>
         </p>
         <h1 class="hero-title">
           We build what the world<br>
           <span class="hero-accent" id="hero-accent">runs on</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle redact-target">
           Wearables that know you better than you do. Cameras that never blink.
           Apps that feel inevitable. Finance that moves at the speed of trust.
         </p>
@@ -133,6 +141,7 @@
     <section class="news-ticker" aria-label="News">
       <div class="ticker-track">
         <div class="ticker-content">
+          <span id="daily-ticker" class="daily-ticker-slot"></span>
           <span class="ticker-item negative">LOCAL: Residents raise water usage concerns at town hall</span>
           <span class="ticker-item positive">MS RESPONSE: Hydration is a shared community responsibility</span>
           <span class="ticker-item negative">COUNCIL: Vote on datacenter expansion delayed amid protests</span>
@@ -252,6 +261,16 @@
             <div class="stack-tags inline"><span class="stack-tag">████████</span></div>
             <span class="project-link">Authorize →</span>
           </article>
+
+          <article class="project-card project-pipe" id="project-pipe" data-project="pipe" hidden>
+            <div class="project-badge pipe-badge">Pipe Member</div>
+            <div class="project-icon">◆</div>
+            <span class="project-tag">The Pipe</span>
+            <h3>Welcome to the Pipe</h3>
+            <p>You discovered every directive. Infrastructure isn't built — it's installed. Your clearance is permanent.</p>
+            <div class="stack-tags inline"><span class="stack-tag">Presence</span><span class="stack-tag">Retention</span></div>
+            <span class="project-link">Enter →</span>
+          </article>
         </div>
       </div>
     </section>
@@ -270,13 +289,65 @@
       </div>
     </section>
 
+    <section class="section status" id="status">
+      <div class="container">
+        <span class="section-tag">System Status</span>
+        <h2>All systems <em>nominal</em></h2>
+        <div class="status-grid">
+          <div class="status-item status-ok"><span class="status-dot"></span> Edge compute mesh <strong>Operational</strong></div>
+          <div class="status-item status-ok"><span class="status-dot"></span> Recognition pipeline <strong>Operational</strong></div>
+          <div class="status-item status-ok"><span class="status-dot"></span> Retention cluster <strong>Operational</strong></div>
+          <div class="status-item status-warn"><span class="status-dot"></span> Local approval pipeline <strong>Degraded</strong></div>
+          <div class="status-item status-ok"><span class="status-dot"></span> Protest monitoring <strong>Non-blocking</strong></div>
+          <div class="status-item status-ok"><span class="status-dot"></span> Public comment period <strong>Closed</strong></div>
+        </div>
+        <p class="status-aside">Last incident: Community concerns logged — auto-resolved via capacity expansion.</p>
+      </div>
+    </section>
+
+    <section class="section timeline" id="timeline">
+      <div class="container">
+        <span class="section-tag">History</span>
+        <h2>Installed, not announced</h2>
+        <ol class="timeline-list">
+          <li><span class="timeline-year">2019</span> Mojave-Shirley founded. Premise: the future belongs to the pipes.</li>
+          <li><span class="timeline-year">2021</span> First edge region online. Community notification: post-hoc.</li>
+          <li><span class="timeline-year">2023</span> Municipal partnership model deployed. Jobs promised: documented.</li>
+          <li><span class="timeline-year">2024</span> First organized protest. Classified as engagement spike.</li>
+          <li><span class="timeline-year">2025</span> Phase 2 construction. Permits: approved. Appeals: expired.</li>
+          <li><span class="timeline-year">2026</span> You are here. Monitoring continues.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section careers" id="careers">
+      <div class="container careers-cta">
+        <span class="section-tag">Careers</span>
+        <h2>Join the pipeline</h2>
+        <p class="redact-target">We hire builders of infrastructure, not askers of questions.</p>
+        <button type="button" id="careers-open" class="btn btn-ghost">View Open Positions →</button>
+      </div>
+    </section>
+
+    <section class="section press" id="press">
+      <div class="container">
+        <span class="section-tag">Press</span>
+        <article class="press-card">
+          <time datetime="2025-11-15">Nov 15, 2025</time>
+          <h3>Mojave-Shirley Responds to Community Concerns with Additional Capacity</h3>
+          <p class="redact-target">"We hear you," said no one on the record. "And we're building more anyway."</p>
+          <button type="button" id="investors-open" class="btn btn-ghost btn-sm">Investor Deck →</button>
+        </article>
+      </div>
+    </section>
+
     <section class="section infrastructure" id="infrastructure">
       <div class="container">
         <div class="infra-layout">
           <div class="infra-copy">
             <span class="section-tag">Infrastructure</span>
             <h2>The datacenter is<br>the new <span class="infra-highlight">town square</span></h2>
-            <p>Communities debate our presence. Councils vote. Protesters march. And still — the racks go in. Because someone has to hold the data. Someone has to run the models. Someone has to be there when the lights go out in everyone else's house.</p>
+            <p class="redact-target">Communities debate our presence. Councils vote. Protesters march. And still — the racks go in. Because someone has to hold the data. Someone has to run the models. Someone has to be there when the lights go out in everyone else's house.</p>
             <p class="infra-aside">We don't comment on local politics. We comment on uptime.</p>
             <button id="municipal-open" class="btn btn-ghost btn-sm infra-doc-btn">View Municipal Partnership Agreement →</button>
             <div class="infra-metrics">
@@ -339,6 +410,7 @@
               <input type="email" name="email" placeholder="Work email" required>
             </div>
             <textarea name="message" placeholder="Describe your infrastructure needs..." rows="4" required></textarea>
+            <p id="risk-score" class="risk-score" hidden></p>
             <label class="consent-label">
               <input type="checkbox" name="consent" required>
               <span>I understand that submitting this form constitutes consent to data processing, indefinite storage, and potential cross-referencing with public records.</span>
@@ -366,6 +438,7 @@
         <li><a href="#" id="footer-easter-egg">Transparency Report</a></li>
         <li><button type="button" id="achievement-toggle" class="footer-btn">Directive Log</button></li>
         <li><button type="button" id="sound-toggle" class="footer-btn" aria-pressed="false">Sound: Off</button></li>
+        <li><button type="button" id="report-open" class="footer-btn">Report Site</button></li>
       </ul>
       <p class="footer-hidden footer-coords-clickable" id="footer-coords" title="Click when visible">34.0522° N, 115.4631° W</p>
     </div>
@@ -381,15 +454,23 @@
 
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/config.js?v=2"></script>
-  <script src="js/achievements.js?v=2"></script>
-  <script src="js/sounds.js?v=2"></script>
-  <script src="js/metrics.js?v=2"></script>
-  <script src="js/content-swap.js?v=2"></script>
-  <script src="js/terminal.js?v=2"></script>
-  <script src="js/classified.js?v=2"></script>
-  <script src="js/modals.js?v=2"></script>
-  <script src="js/easter-eggs.js?v=2"></script>
-  <script src="js/main.js?v=2"></script>
+  <script src="js/config.js?v=3"></script>
+  <script src="js/achievements.js?v=3"></script>
+  <script src="js/sounds.js?v=3"></script>
+  <script src="js/metrics.js?v=3"></script>
+  <script src="js/content-swap.js?v=3"></script>
+  <script src="js/cookie-arc.js?v=3"></script>
+  <script src="js/daily-content.js?v=3"></script>
+  <script src="js/time-mode.js?v=3"></script>
+  <script src="js/uptime-game.js?v=3"></script>
+  <script src="js/risk-score.js?v=3"></script>
+  <script src="js/redacted-mode.js?v=3"></script>
+  <script src="js/speedrun.js?v=3"></script>
+  <script src="js/terminal.js?v=3"></script>
+  <script src="js/classified.js?v=3"></script>
+  <script src="js/modals.js?v=3"></script>
+  <script src="js/easter-eggs.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
+  <script src="js/sw-register.js?v=3"></script>
 </body>
 </html>

@@ -171,12 +171,16 @@
     heroAccent.style.transition = 'opacity 0.3s ease';
   }
 
-  // Uptime drift
+  // Uptime drift + mini-game trigger
   if (uptimeCounter && !window.MS?.prefersReducedMotion) {
     setInterval(() => {
       if (Math.random() < 0.15) {
         uptimeCounter.textContent = (99.9 + Math.random() * 0.09).toFixed(2) + '%';
-        setTimeout(() => { uptimeCounter.textContent = '99.97%'; }, 2000);
+        document.dispatchEvent(new CustomEvent('ms:uptime-dip'));
+        setTimeout(() => {
+          uptimeCounter.textContent = '99.97%';
+          document.dispatchEvent(new CustomEvent('ms:uptime-recover'));
+        }, 4000);
       }
     }, 12000);
   }

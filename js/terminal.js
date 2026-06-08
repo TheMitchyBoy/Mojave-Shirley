@@ -40,6 +40,10 @@
       '  datacenter        — infrastructure info',
       '  whoami            — identify session',
       '  tail -f protests.log — live protest feed',
+      '  glossary          — corporate lexicon',
+      '  careers           — open positions',
+      '  investors         — quarterly deck',
+      '  sudo              — elevated access',
       '  clear             — clear terminal',
       '  exit              — close terminal',
       '  mojave            — classified access',
@@ -91,8 +95,8 @@
       return ['Access granted.', 'Opening classified overlay...'];
     },
     achievements: () => {
-      const { count, total } = window.MS?.Achievements?.getProgress() || { count: 0, total: 14 };
-      return [`Directives discovered: ${count}/${total}`, 'Type in footer or run UI panel for details.'];
+      const { count, total } = window.MS?.Achievements?.getProgress() || { count: 0, total: 24 };
+      return [`Directives discovered: ${count}/${total}`, `Footer: Directive Log · Finale unlocks when all others found`];
     },
     'node-id': () => {
       window.MS?.Achievements?.unlock('node_inspect');
@@ -110,6 +114,23 @@
     exit: () => {
       hide();
       return null;
+    },
+    glossary: () => {
+      window.MS?.Modals?.openGlossary();
+      window.MS?.Achievements?.unlock('glossary');
+      return ['Opening corporate lexicon...'];
+    },
+    careers: () => {
+      window.MS?.Modals?.openCareers();
+      return ['Routing to Human Capital pipeline...'];
+    },
+    investors: () => {
+      window.MS?.Modals?.openInvestors();
+      return ['Loading shareholder materials...'];
+    },
+    sudo: () => {
+      window.MS?.Redacted?.enable();
+      return ['Password: accepted (not verified)', 'Redacted mode enabled.'];
     },
   };
 

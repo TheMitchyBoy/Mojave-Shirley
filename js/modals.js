@@ -25,12 +25,13 @@
       aside: 'Facial recognition accuracy: 99.2%. Consent rate: not applicable.',
       stacks: ['ONNX', 'Edge TPU', 'YOLOv8', 'CUDA', 'gRPC'],
       visual: `<div class="case-visual case-cam">
-        <div class="cam-feed">
+        <div class="cam-feed" id="interactive-cam-feed">
           <div class="bbox" style="top:18%;left:22%;width:28%;height:42%">PERSON 98%</div>
           <div class="bbox" style="top:55%;left:58%;width:18%;height:22%">OBJECT 76%</div>
         </div>
-        <span class="case-caption">Edge inference — 47ms — camera mesh node 12</span>
+        <span class="case-caption">Move cursor over feed — edge inference active</span>
       </div>`,
+      interactiveCam: true,
     },
     apps: {
       tag: 'Software',
@@ -65,7 +66,38 @@
       stacks: ['████████', '████████', '████████'],
       visual: `<div class="case-visual case-redacted"><span>ACCESS DENIED</span></div>`,
     },
+    pipe: {
+      tag: 'The Pipe',
+      title: 'You Found the Pipe',
+      body: 'Every directive discovered. Every vertical mapped. You understand that infrastructure is not built — it is installed. Welcome to Mojave-Shirley. Your clearance is permanent.',
+      aside: 'This message self-destructs never. Session retained forever.',
+      stacks: ['Presence', 'Retention', 'Compliance'],
+      visual: `<div class="case-visual case-pipe"><span>◆ PIPE MEMBER ◆</span></div>`,
+    },
   };
+
+  const LABELS = ['PERSON', 'OBJECT', 'VEHICLE', 'SIGNAL', 'ANOMALY'];
+
+  function initCamFeed(feed) {
+    if (!feed) return;
+    let boxCount = 0;
+    feed.addEventListener('mousemove', (e) => {
+      if (boxCount > 8) return;
+      const rect = feed.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      if (Math.random() > 0.92) {
+        const box = document.createElement('div');
+        box.className = 'bbox bbox-dynamic';
+        const size = 12 + Math.random() * 18;
+        box.style.cssText = `top:${y - size / 2}%;left:${x - size / 2}%;width:${size}%;height:${size * 0.8}%`;
+        box.textContent = `${LABELS[Math.floor(Math.random() * LABELS.length)]} ${Math.floor(60 + Math.random() * 39)}%`;
+        feed.appendChild(box);
+        boxCount++;
+        setTimeout(() => box.remove(), 2500);
+      }
+    });
+  }
 
   function openProject(projectId) {
     const data = PROJECTS[projectId];
@@ -108,6 +140,10 @@
     }
 
     document.body.appendChild(modal);
+
+    if (data.interactiveCam) {
+      initCamFeed(modal.querySelector('#interactive-cam-feed'));
+    }
   }
 
   function openMunicipal() {
@@ -132,6 +168,7 @@
           <tr><td>Appeal window</td><td>Expired</td></tr>
         </table>
         <p class="modal-aside">This document is provided for transparency. Transparency is not guaranteed.</p>
+        <p class="doc-qr-hint">Facility node: <a href="node/" target="_blank" rel="noopener">/node</a></p>
       </div>
     `;
 
@@ -212,11 +249,123 @@
     window.MS?.Achievements?.unlock('inquiry');
   }
 
+  function openGlossary() {
+    openGenericModal('glossary-modal', `
+      <span class="modal-tag">Lexicon</span>
+      <h3>Corporate Glossary</h3>
+      <dl class="glossary-list">
+        <dt>Community partnership</dt><dd>Long-term land lease with optional tax abatement.</dd>
+        <dt>Edge region</dt><dd>Geographic area where you do not live.</dd>
+        <dt>Transparency</dt><dd>Availability of information upon denial.</dd>
+        <dt>Retention policy</dt><dd>Duration: yes.</dd>
+        <dt>Public comment period</dt><dd>Scheduled interval before predetermined outcome.</dd>
+        <dt>Local sentiment</dt><dd>Non-blocking telemetry.</dd>
+      </dl>
+    `);
+  }
+
+  function openCareers() {
+    openGenericModal('careers-modal', `
+      <span class="modal-tag">Careers</span>
+      <h3>Join the Pipeline</h3>
+      <ul class="careers-list">
+        <li><strong>Community Sentiment Analyst</strong> — Deprioritize feedback at scale.</li>
+        <li><strong>Protest De-escalation Engineer</strong> — Rename rallies to engagement spikes.</li>
+        <li><strong>Retention Policy Architect</strong> — Design systems that never forget.</li>
+      </ul>
+      <button type="button" class="btn btn-primary" id="careers-apply">Apply Now</button>
+      <p class="modal-aside" id="careers-result" hidden>Recommendation: Infrastructure. Always Infrastructure.</p>
+    `, () => {
+      document.getElementById('careers-apply')?.addEventListener('click', () => {
+        document.getElementById('careers-result').hidden = false;
+        window.MS?.Achievements?.unlock('careers');
+        window.MS?.showToast('Application received. You are pre-qualified for the pipe.');
+      });
+    });
+  }
+
+  function openInvestors() {
+    openGenericModal('investors-modal', `
+      <span class="modal-tag">Q3 2025</span>
+      <h3>Investor Deck</h3>
+      <div class="investor-charts">
+        <div class="chart-bar"><span class="chart-label">Compute capacity</span><div class="chart-fill" style="width:95%"></div></div>
+        <div class="chart-bar"><span class="chart-label">Community trust</span><div class="chart-fill chart-flat" style="width:12%"></div></div>
+        <div class="chart-bar"><span class="chart-label">MW under management</span><div class="chart-fill" style="width:88%"></div></div>
+        <div class="chart-bar"><span class="chart-label">Objections filed</span><div class="chart-fill" style="width:70%"></div></div>
+      </div>
+      <p class="modal-aside">Forward-looking statements include datacenters you haven't heard about yet.</p>
+    `);
+    window.MS?.Achievements?.unlock('investors');
+  }
+
+  function openReport() {
+    openGenericModal('report-modal', `
+      <span class="modal-tag">Whistleblower</span>
+      <h3>Report This Site</h3>
+      <textarea id="report-text" rows="4" placeholder="Describe your concerns..." class="report-input"></textarea>
+      <button type="button" class="btn btn-primary" id="report-submit">Submit Report</button>
+      <p class="modal-aside" id="report-result" hidden>Complaint archived. Subject notified. Thank you for your compliance.</p>
+    `, () => {
+      document.getElementById('report-submit')?.addEventListener('click', () => {
+        document.getElementById('report-result').hidden = false;
+        window.MS?.Achievements?.unlock('whistleblower');
+        window.MS?.showToast('Report forwarded to Legal and Retention.');
+      });
+    });
+  }
+
+  function openShareCard() {
+    const { count, total } = window.MS?.Achievements?.getProgress() || { count: 0, total: 24 };
+    openGenericModal('share-modal', `
+      <span class="modal-tag">Clearance Card</span>
+      <h3>EYES ONLY</h3>
+      <div class="clearance-card">
+        <p class="clearance-level">CLEARANCE: PIPE MEMBER</p>
+        <p>Directives: ${count}/${total}</p>
+        <p>Mojave-Shirley · edge-7-mojave</p>
+      </div>
+      <p class="modal-aside">Screenshot encouraged. Deletion discouraged.</p>
+    `);
+  }
+
+  function openGenericModal(id, inner, onMount) {
+    document.getElementById(id)?.remove();
+    const modal = document.createElement('div');
+    modal.id = id;
+    modal.className = 'project-modal';
+    modal.innerHTML = `<div class="project-modal-content"><button class="project-modal-close" aria-label="Close">&times;</button>${inner}</div>`;
+    function close() { modal.remove(); cleanupEsc?.(); }
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
+    });
+    const cleanupEsc = window.MS?.closeOnEscape(close);
+    document.body.appendChild(modal);
+    onMount?.();
+  }
+
   document.getElementById('municipal-open')?.addEventListener('click', (e) => {
     e.preventDefault();
     openMunicipal();
   });
+  document.getElementById('careers-open')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openCareers();
+  });
+  document.getElementById('investors-open')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openInvestors();
+  });
+  document.getElementById('report-open')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openReport();
+  });
 
   window.MS = window.MS || {};
-  window.MS.Modals = { openProject, openMunicipal, openFacility, showTicket, PROJECTS };
+  window.MS.Modals = {
+    openProject, openMunicipal, openFacility, showTicket,
+    openGlossary, openCareers, openInvestors, openReport, openShareCard,
+    PROJECTS,
+  };
 })();
+

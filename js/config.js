@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  const ASSET_VERSION = '2';
+  const ASSET_VERSION = '3';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

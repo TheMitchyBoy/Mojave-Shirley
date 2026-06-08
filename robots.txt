@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /classified
+Disallow: /conscience
+Disallow: /node/
+
+# Monitoring continues.

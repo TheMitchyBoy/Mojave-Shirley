@@ -10,61 +10,46 @@ python3 -m http.server 8080
 
 Visit `http://localhost:8080` or open `index.html` directly.
 
+**Ops speedrun mode:** `http://localhost:8080/?ops`
+
 ## Deploy
 
-Pushes to `main` auto-deploy via GitHub Pages (`.github/workflows/pages.yml`). Enable Pages in repo Settings → Pages → Source: GitHub Actions.
+Pushes to `main` auto-deploy via GitHub Pages. Enable in Settings → Pages → Source: GitHub Actions.
 
-## Features
+## Features (v3)
 
-- **Project spotlights** — Wearables, security camera AI, apps, fintech with tech stack tags and case-study modals
-- **News ticker** — Local opposition headlines vs corporate responses
-- **Municipal partnership doc** — Fake town hall PDF with jobs promised vs delivered
-- **Achievement log** — 14 discoverable directives, persisted in localStorage
-- **Progressive disclosure** — Copy shifts after classified unlock
-- **Optional ambient sound** — Off by default (footer toggle)
-- **Live metrics** — Signals processed counter ticks upward
+- **System status page** — All green except "Local approval pipeline: Degraded"
+- **Company timeline** — Founding through Phase 2 construction
+- **Careers & investor deck** — Satirical hiring and shareholder modals
+- **Daily news ticker** — Rotating headline pair by calendar day
+- **Cookie decline arc** — Slow UI shift after declining cookies
+- **Uptime mini-game** — Click uptime stat during a dip to stabilize
+- **Camera feed simulator** — Vision modal draws bounding boxes on mouse move
+- **Risk score** — Visible in classified mode while typing contact form
+- **sudo redacted mode** — Terminal command blurs copy; click to unredact
+- **24 directives** — Achievement log with finale unlock + sixth project card
+- **Clearance share card** — After completing all directives
+- **Whistleblower report** — Footer "Report Site" modal
+- **Night mode copy** — Midnight–5am hero text shift
+- **`/node`** — Minimal facility heartbeat page
+- **`robots.txt`** — Disallows `/classified`, `/conscience`
+- **404 page** — "Relocated to cold storage"
+- **Service worker** — Offline retention message
 
 ## Easter Eggs
 
-| Trigger | Effect |
-|---------|--------|
-| Triple-click logo | Hidden edge terminal |
-| Long-press logo | Surveillance grid overlay |
-| Type `datacenter` | Terminal + infrastructure intel |
-| Type `mojave` | Classified overlay |
-| Type `edge-7-mojave` | Node ID verified (also in HTML source) |
-| Konami code (↑↑↓↓←→←→BA) | Glitch → classified overlay |
-| Terminal `mojave` | Classified overlay |
-| Terminal `ls`, `cat memo.txt`, `tail -f protests.log` | Hidden files |
-| Terminal `rm -rf conscience` | Permission denied |
-| Terminal `node-id` | Source inspection logged |
-| Click stat "4" | Reveals fifth [REDACTED] project card |
-| Transparency Report | Coordinates appear |
-| Click coordinates | Facility status map |
-| Submit contact form | Fake ticket with review pipeline |
-| Directive Log (footer) | Achievement tracker |
-| Idle 30s | Logo hint pulse |
-| Idle 60s | "Session idle" toast |
-| Escape | Close overlays / terminal / modals |
+See [full list in previous versions plus] terminal commands: `glossary`, `careers`, `investors`, `sudo`.
+
+Finale: discover all 22 other directives → unlock **Welcome to the Pipe** + sixth project card.
 
 ## Structure
 
 ```
-index.html
+index.html, 404.html, robots.txt, sw.js
+node/index.html
+js/ — config, achievements, terminal, classified, modals, cookie-arc,
+      daily-content, time-mode, uptime-game, risk-score, redacted-mode,
+      speedrun, easter-eggs, main, sw-register
 css/styles.css
-js/
-  config.js         — Shared utilities, toast, focus trap
-  achievements.js   — Directive tracking
-  sounds.js         — Optional ambient audio
-  metrics.js        — Live counters
-  content-swap.js   — Progressive copy changes
-  terminal.js         — Hidden terminal
-  classified.js     — Classified overlay
-  modals.js         — Project, municipal, facility, ticket modals
-  easter-eggs.js    — Konami, keywords, idle watcher
-  main.js           — Core UI interactions
-assets/
-  favicon.svg
-  og-image.svg
-.github/workflows/pages.yml
+assets/favicon.svg, og-image.svg
 ```

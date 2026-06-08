@@ -59,6 +59,7 @@
     localStorage.setItem(COOKIE_KEY, 'declined');
     cookieBanner?.classList.add('hidden');
     window.MS?.showToast('Decline logged. Tracking continues.');
+    document.dispatchEvent(new CustomEvent('ms:cookie-declined'));
   });
 
   finePrint?.addEventListener('mouseenter', () => finePrint.classList.add('revealed'));
