@@ -22,6 +22,9 @@
   --radius-lg: 20px;
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --header-height: 72px;
+  --header-margin: clamp(12px, 3vw, 20px);
+  --header-offset: calc(var(--header-margin) + var(--header-height));
+  --header-clearance: calc(var(--header-offset) + 12px);
 }
 
 *, *::before, *::after {
@@ -32,7 +35,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height);
+  scroll-padding-top: var(--header-clearance);
 }
 
 body {
@@ -86,13 +89,16 @@ body.classified-mode .hero-accent {
 /* Header */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: var(--header-margin);
+  left: var(--header-margin);
+  right: var(--header-margin);
+  width: auto;
   z-index: 100;
   height: var(--header-height);
   background: var(--bg-deep);
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
@@ -237,7 +243,7 @@ body.classified-mode .hero-accent {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding-top: var(--header-height);
+  padding-top: var(--header-clearance);
   overflow: hidden;
   background: var(--bg-deep);
 }
@@ -1546,10 +1552,11 @@ body.glitch-mode:not(.reduce-glitch) {
 /* Comment banner */
 .comment-banner {
   position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
+  top: var(--header-offset);
+  left: var(--header-margin);
+  right: var(--header-margin);
   z-index: 90;
+  border-radius: 0 0 var(--radius) var(--radius);
   padding: 10px 20px;
   text-align: center;
   font-family: var(--font-mono);
@@ -1834,9 +1841,9 @@ body.content-classified .hero-accent {
   .nav-links {
     display: none;
     position: absolute;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
+    top: var(--header-offset);
+    left: var(--header-margin);
+    right: var(--header-margin);
     flex-direction: column;
     padding: 24px;
     background: var(--bg-deep);
@@ -2090,7 +2097,7 @@ body.cookie-arc-3 .hero-accent { color: var(--danger) !important; -webkit-text-f
 
 .speedrun-hud {
   position: fixed;
-  top: calc(var(--header-height) + 12px);
+  top: calc(var(--header-clearance) + 12px);
   right: 16px;
   z-index: 120;
   padding: 8px 14px;
