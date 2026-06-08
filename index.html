@@ -8,7 +8,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mojave Shirley">
+  <meta property="og:title" content="Mojave-Shirley">
   <meta property="og:description" content="We build what the world runs on. You run on it too.">
   <meta property="og:image" content="assets/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=17">
+  <link rel="stylesheet" href="css/styles.css?v=18">
 </head>
 <body>
   <!-- node-id: edge-7-mojave -->
@@ -31,18 +31,18 @@
     Public comment period: <strong>Closed</strong> · Appeals window: <strong>Expired</strong>
   </div>
 
-  <div id="classified-overlay" class="classified-overlay" hidden>
+  <div id="classified-overlay" class="classified-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="classified-title">
     <div class="classified-content">
       <p class="classified-stamp">INTERNAL — ONLY</p>
-      <h2>Project Mojave Directive</h2>
-      <p>Datacenter partnerships aren't about computing power. They're about <span class="redacted" data-reveal="presence">political power</span> in across the globe.</p>
+      <h2 id="classified-title">Project Mojave Directive</h2>
+      <p>Datacenter partnerships aren't about computing power. They're about <span class="redacted" data-reveal="presence">political power</span> across the globe.</p>
       <p>Every wearable device tracks. Every camera identifies. Every pageview <span class="redacted" data-reveal="persists">reads your mind</span>. Every transaction <span class="redacted" data-reveal="validates">validates</span> our model of you.</p>
       <p class="classified-footer">Oops, you weren't supposed to see this. Your IP has been filed.</p>
       <button id="classified-close" class="btn btn-ghost">Acknowledge &amp; Disassociate</button>
     </div>
   </div>
 
-  <div id="achievement-panel" class="achievement-panel" hidden role="dialog" aria-label="Achievement log">
+  <div id="achievement-panel" class="achievement-panel" hidden role="dialog" aria-modal="true" aria-label="Achievement log">
     <div class="achievement-panel-inner">
       <button id="achievement-close" class="project-modal-close" aria-label="Close">&times;</button>
       <h3>Directive Log</h3>
@@ -100,7 +100,7 @@
           <span class="pulse-dot"></span>
           <span id="hero-eyebrow-label">Session active ·</span>
           <span id="uptime-counter">99.97%</span>
-          <span id="hero-eyebrow-suffix">uptime · you've be logged</span>
+          <span id="hero-eyebrow-suffix">uptime · you've been logged</span>
         </p>
         <h1 class="hero-title">
           We design the brave new world<br>
@@ -153,8 +153,6 @@
               <span class="ticker-item positive">MS: Staging is live. Tracking is already on.</span>
               <span class="ticker-item negative">FOIA: Residents request cooling &amp; power agreements</span>
               <span class="ticker-item positive">MS: Document pending. Indefinitely.</span>
-              <span class="ticker-item negative">LOCAL: Town hall packed over water draw for new facility</span>
-              <span class="ticker-item positive">MS: Water is a renewable talking point</span>
             </div>
           </div>
         </div>
@@ -418,10 +416,13 @@
           <p data-swap="contact-sub">Need a site, a web app, or a tracking setup that survives iOS updates? Tell us what you're measuring.</p>
           <form class="contact-form" id="contact-form">
             <div class="form-row">
-              <input type="text" name="name" placeholder="Legal name" required>
-              <input type="email" name="email" placeholder="Work email (personal emails flagged)" required>
+              <label class="sr-only" for="contact-name">Legal name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Legal name" required>
+              <label class="sr-only" for="contact-email">Work email</label>
+              <input type="email" id="contact-email" name="email" placeholder="Work email (personal emails flagged)" required>
             </div>
-            <textarea name="message" placeholder="Site type, KPIs, tracking tools, consent requirements, timeline..." rows="4" required></textarea>
+            <label class="sr-only" for="contact-message">Project details</label>
+            <textarea id="contact-message" name="message" placeholder="Site type, KPIs, tracking tools, consent requirements, timeline..." rows="4" required></textarea>
             <p id="risk-score" class="risk-score" hidden></p>
             <label class="consent-label">
               <input type="checkbox" name="consent" required>
@@ -467,12 +468,12 @@
   <div id="toast" class="toast" hidden></div>
 
   <script src="js/config.js?v=6"></script>
-  <script src="js/achievements.js?v=6"></script>
-  <script src="js/sounds.js?v=6"></script>
+  <script src="js/achievements.js?v=10"></script>
+  <script src="js/sounds.js?v=10"></script>
   <script src="js/metrics.js?v=6"></script>
   <script src="js/content-swap.js?v=6"></script>
-  <script src="js/cookie-arc.js?v=6"></script>
-  <script src="js/daily-content.js?v=6"></script>
+  <script src="js/cookie-arc.js?v=10"></script>
+  <script src="js/daily-content.js?v=10"></script>
   <script src="js/time-mode.js?v=7"></script>
   <script src="js/uptime-game.js?v=6"></script>
   <script src="js/risk-score.js?v=6"></script>
@@ -480,9 +481,9 @@
   <script src="js/speedrun.js?v=6"></script>
   <script src="js/terminal.js?v=6"></script>
   <script src="js/classified.js?v=6"></script>
-  <script src="js/modals.js?v=6"></script>
-  <script src="js/easter-eggs.js?v=9"></script>
-  <script src="js/main.js?v=8"></script>
+  <script src="js/modals.js?v=10"></script>
+  <script src="js/easter-eggs.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
   <script src="js/sw-register.js?v=6"></script>
 </body>
 </html>

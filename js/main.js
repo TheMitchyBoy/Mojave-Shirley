@@ -64,13 +64,20 @@
   finePrint?.addEventListener('mouseenter', () => finePrint.classList.add('revealed'));
 
   projectCards.forEach((card) => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       card.style.setProperty('--mouse-x', `${((e.clientX - rect.left) / rect.width) * 100}%`);
       card.style.setProperty('--mouse-y', `${((e.clientY - rect.top) / rect.height) * 100}%`);
     });
-    card.addEventListener('click', () => {
-      window.MS?.Modals?.openProject(card.dataset.project);
+    const openCard = () => window.MS?.Modals?.openProject(card.dataset.project);
+    card.addEventListener('click', openCard);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openCard();
+      }
     });
   });
 

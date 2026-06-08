@@ -79,12 +79,20 @@
     }
   }
 
+  function resumeOnInteraction() {
+    if (!enabled || humNode) return;
+    getContext().resume().then(() => startHum()).catch(() => {});
+  }
+
   const btn = document.getElementById('sound-toggle');
   if (btn) {
     btn.textContent = enabled ? 'Sound: On' : 'Sound: Off';
     btn.setAttribute('aria-pressed', String(enabled));
     btn.addEventListener('click', toggle);
-    if (enabled) startHum();
+    if (enabled) {
+      document.addEventListener('click', resumeOnInteraction, { once: true });
+      document.addEventListener('keydown', resumeOnInteraction, { once: true });
+    }
   }
 
   window.MS = window.MS || {};

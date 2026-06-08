@@ -25,13 +25,23 @@
   }
 
   function injectDailyTicker() {
+    const content = document.querySelector('.ticker-content');
     const el = document.getElementById('daily-ticker');
-    if (!el) return;
+    if (!content || !el) return;
+
     const h = HEADLINES[dayIndex() % HEADLINES.length];
     el.innerHTML = `
       <span class="ticker-item negative">TODAY: ${h.neg}</span>
       <span class="ticker-item positive">MS: ${h.pos}</span>
     `;
+
+    content.querySelectorAll('[data-ticker-clone]').forEach((node) => node.remove());
+    [...content.children].forEach((child) => {
+      const clone = child.cloneNode(true);
+      clone.setAttribute('data-ticker-clone', '');
+      clone.removeAttribute('id');
+      content.appendChild(clone);
+    });
   }
 
   injectDailyTicker();

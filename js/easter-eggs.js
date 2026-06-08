@@ -48,7 +48,7 @@
     document.querySelector('.project-modal')?.remove();
     const achievementPanel = document.getElementById('achievement-panel');
     if (achievementPanel && !achievementPanel.hidden) {
-      achievementPanel.hidden = true;
+      window.MS?.Achievements?.closePanel();
     }
   });
 
@@ -103,21 +103,18 @@
   });
   logo?.addEventListener('mouseup', () => clearTimeout(logoPressTimer));
   logo?.addEventListener('mouseleave', () => clearTimeout(logoPressTimer));
-  logo?.addEventListener('touchstart', (e) => {
-    e.preventDefault();
+  logo?.addEventListener('touchstart', () => {
     logoPressTimer = setTimeout(() => {
       surveillanceGrid?.classList.add('active');
       window.MS?.Achievements?.unlock('surveillance');
       setTimeout(() => surveillanceGrid?.classList.remove('active'), 5000);
     }, 800);
-  }, { passive: false });
+  }, { passive: true });
   logo?.addEventListener('touchend', () => clearTimeout(logoPressTimer));
 
   // Keyword typing
   document.addEventListener('keypress', (e) => {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-      if (e.target.id !== 'terminal-input') return;
-    }
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
     typedBuffer += e.key.toLowerCase();
     if (typedBuffer.length > 24) typedBuffer = typedBuffer.slice(-24);

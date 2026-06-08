@@ -21,7 +21,7 @@
     vision: {
       tag: 'Computer Vision',
       title: 'Security Camera AI & Recognition',
-      body: '2.4M daily recognitions across municipal and private feeds. Inference runs on-camera so clients can say "edge processed." Correlation runs where you can't see it.',
+      body: '2.4M daily recognitions across municipal and private feeds. Inference runs on-camera so clients can say "edge processed." Correlation runs where you can\'t see it.',
       aside: 'Recognition accuracy: 99.2%. Opt-out rate: not tracked.',
       stacks: ['ONNX', 'Edge TPU', 'YOLOv8', 'CUDA', 'gRPC'],
       visual: `<div class="case-visual case-cam">
@@ -80,6 +80,31 @@
 
   const LABELS = ['PERSON', 'OBJECT', 'VEHICLE', 'SIGNAL', 'ANOMALY'];
 
+  function mountModal(modal, contentSelector, onClose) {
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+
+    let cleanupEsc;
+    let cleanupFocus;
+
+    function close() {
+      modal.remove();
+      cleanupEsc?.();
+      cleanupFocus?.();
+      onClose?.();
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
+    });
+
+    document.body.appendChild(modal);
+    cleanupEsc = window.MS?.closeOnEscape(close);
+    cleanupFocus = window.MS?.trapFocus(modal.querySelector(contentSelector));
+
+    return close;
+  }
+
   function initCamFeed(feed) {
     if (!feed) return;
     let boxCount = 0;
@@ -96,7 +121,10 @@
         box.textContent = `${LABELS[Math.floor(Math.random() * LABELS.length)]} ${Math.floor(60 + Math.random() * 39)}%`;
         feed.appendChild(box);
         boxCount++;
-        setTimeout(() => box.remove(), 2500);
+        setTimeout(() => {
+          box.remove();
+          boxCount--;
+        }, 2500);
       }
     });
   }
@@ -110,8 +138,6 @@
     const stacks = data.stacks.map((t) => `<span class="stack-tag">${t}</span>`).join('');
     const modal = document.createElement('div');
     modal.className = 'project-modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
     modal.innerHTML = `
       <div class="project-modal-content">
         <button class="project-modal-close" aria-label="Close">&times;</button>
@@ -124,24 +150,7 @@
       </div>
     `;
 
-    function close() {
-      modal.remove();
-      cleanup();
-    }
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
-    });
-
-    const cleanupEsc = window.MS?.closeOnEscape(close);
-    const cleanupFocus = window.MS?.trapFocus(modal.querySelector('.project-modal-content'));
-
-    function cleanup() {
-      cleanupEsc?.();
-      cleanupFocus?.();
-    }
-
-    document.body.appendChild(modal);
+    mountModal(modal, '.project-modal-content');
 
     if (data.interactiveCam) {
       initCamFeed(modal.querySelector('#interactive-cam-feed'));
@@ -154,7 +163,6 @@
     const modal = document.createElement('div');
     modal.id = 'municipal-modal';
     modal.className = 'project-modal municipal-modal';
-    modal.setAttribute('role', 'dialog');
     modal.innerHTML = `
       <div class="project-modal-content municipal-doc">
         <button class="project-modal-close" aria-label="Close">&times;</button>
@@ -174,13 +182,7 @@
       </div>
     `;
 
-    function close() { modal.remove(); cleanupEsc?.(); cleanupFocus?.(); }
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
-    });
-    const cleanupEsc = window.MS?.closeOnEscape(close);
-    const cleanupFocus = window.MS?.trapFocus(modal.querySelector('.project-modal-content'));
-    document.body.appendChild(modal);
+    mountModal(modal, '.project-modal-content');
     window.MS?.Achievements?.unlock('municipal');
   }
 
@@ -210,12 +212,7 @@
       </div>
     `;
 
-    function close() { modal.remove(); cleanupEsc?.(); }
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
-    });
-    const cleanupEsc = window.MS?.closeOnEscape(close);
-    document.body.appendChild(modal);
+    mountModal(modal, '.project-modal-content');
     window.MS?.Achievements?.unlock('coordinates');
   }
 
@@ -242,12 +239,7 @@
       </div>
     `;
 
-    function close() { modal.remove(); cleanupEsc?.(); }
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
-    });
-    const cleanupEsc = window.MS?.closeOnEscape(close);
-    document.body.appendChild(modal);
+    mountModal(modal, '.project-modal-content');
     window.MS?.Achievements?.unlock('inquiry');
   }
 
@@ -342,12 +334,7 @@
     modal.id = id;
     modal.className = 'project-modal';
     modal.innerHTML = `<div class="project-modal-content"><button class="project-modal-close" aria-label="Close">&times;</button>${inner}</div>`;
-    function close() { modal.remove(); cleanupEsc?.(); }
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('project-modal-close')) close();
-    });
-    const cleanupEsc = window.MS?.closeOnEscape(close);
-    document.body.appendChild(modal);
+    mountModal(modal, '.project-modal-content');
     onMount?.();
   }
 

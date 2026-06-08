@@ -46,6 +46,7 @@
 
   if (localStorage.getItem(KEY) === 'declined') {
     setStage(getStage());
+    startArc();
   }
 
   window.MS = window.MS || {};

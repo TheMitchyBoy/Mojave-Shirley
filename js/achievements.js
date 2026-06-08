@@ -117,22 +117,32 @@
     if (shareBtn) shareBtn.hidden = !unlocked.has('finale');
   }
 
+  let panelFocusCleanup = null;
+
+  function closePanel() {
+    const panel = document.getElementById('achievement-panel');
+    if (!panel || panel.hidden) return;
+    panel.hidden = true;
+    panelFocusCleanup?.();
+    panelFocusCleanup = null;
+    document.getElementById('achievement-toggle')?.focus();
+  }
+
   function togglePanel() {
     const panel = document.getElementById('achievement-panel');
     if (!panel) return;
-    const open = panel.hidden;
-    panel.hidden = !open;
-    if (open) {
-      unlock('achievements');
-      updatePanel();
-      window.MS?.trapFocus(panel);
+    if (!panel.hidden) {
+      closePanel();
+      return;
     }
+    panel.hidden = false;
+    unlock('achievements');
+    updatePanel();
+    panelFocusCleanup = window.MS?.trapFocus(panel.querySelector('.achievement-panel-inner') || panel);
   }
 
   document.getElementById('achievement-toggle')?.addEventListener('click', togglePanel);
-  document.getElementById('achievement-close')?.addEventListener('click', () => {
-    document.getElementById('achievement-panel').hidden = true;
-  });
+  document.getElementById('achievement-close')?.addEventListener('click', closePanel);
   document.getElementById('share-clearance-btn')?.addEventListener('click', () => {
     window.MS?.Modals?.openShareCard();
     unlock('share');
@@ -163,5 +173,5 @@
   }
 
   window.MS = window.MS || {};
-  window.MS.Achievements = { unlock, isUnlocked, getProgress, updatePanel, togglePanel, restoreState, checkFinale, DEFINITIONS };
+  window.MS.Achievements = { unlock, isUnlocked, getProgress, updatePanel, togglePanel, closePanel, restoreState, checkFinale, DEFINITIONS };
 })();
