@@ -1460,40 +1460,27 @@ body.glitch-mode:not(.reduce-glitch) {
 }
 
 .card-visual-ticker {
-  top: 0;
-  right: 0;
-  left: 0;
-  opacity: 0.3;
+  display: flex;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--warning);
 }
 
-.fintech-ticker-track {
+.case-fintech .fintech-ticker-track {
   overflow: hidden;
   width: 100%;
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
-.fintech-ticker-content {
+.case-fintech .fintech-ticker-content {
   display: flex;
   gap: 32px;
   width: max-content;
   font-family: var(--font-mono);
+  font-size: 0.7rem;
   white-space: nowrap;
   animation: fintech-marquee 14s linear infinite;
-}
-
-.fintech-ticker-content span {
-  color: var(--warning);
-}
-
-.card-visual-ticker .fintech-ticker-content {
-  gap: 24px;
-  font-size: 0.55rem;
-  animation-duration: 10s;
-}
-
-.case-fintech .fintech-ticker-content {
-  font-size: 0.7rem;
-  color: var(--accent);
 }
 
 .case-fintech .fintech-ticker-content span {
@@ -2233,12 +2220,12 @@ body.redacted-mode .redact-target.redacted-revealed { filter: none; color: var(-
     padding: 0 16px;
   }
 
-  .fintech-ticker-track {
+  .case-fintech .fintech-ticker-track {
     overflow-x: auto;
     mask-image: none;
   }
 
-  .fintech-ticker-content {
+  .case-fintech .fintech-ticker-content {
     animation: none;
     flex-wrap: wrap;
     width: auto;
