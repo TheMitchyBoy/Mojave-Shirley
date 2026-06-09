@@ -26,7 +26,7 @@
     'that remembers you',
     'that watches you breathe',
     'that wears your skin',
-    'that never would leave you',
+    'that loves you',
     'that knew you\'d come back',
     'that devours your mind',
   ];
