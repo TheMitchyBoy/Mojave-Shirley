@@ -33,6 +33,8 @@
     finale: { label: 'Welcome to the Pipe', hint: 'Discover all other directives' },
   };
 
+  const CORE_DIRECTIVES = Object.keys(DEFINITIONS).filter((k) => k !== 'finale' && k !== 'share');
+
   let unlocked = load();
 
   function load() {
@@ -48,8 +50,7 @@
   }
 
   function checkFinale() {
-    const keys = Object.keys(DEFINITIONS).filter((k) => k !== 'finale' && k !== 'share');
-    const allFound = keys.every((k) => unlocked.has(k));
+    const allFound = CORE_DIRECTIVES.every((k) => unlocked.has(k));
     if (allFound && !unlocked.has('finale')) {
       unlocked.add('finale');
       save();
@@ -59,6 +60,11 @@
       showEpilogue();
     }
     updatePanel();
+  }
+
+  function hidePipe() {
+    const card = document.getElementById('project-pipe');
+    if (card) card.hidden = true;
   }
 
   function revealPipe() {
@@ -92,8 +98,12 @@
   }
 
   function getProgress() {
-    const total = Object.keys(DEFINITIONS).length;
-    return { count: unlocked.size, total, ids: [...unlocked] };
+    const finaleUnlocked = unlocked.has('finale');
+    const total = finaleUnlocked ? Object.keys(DEFINITIONS).length : CORE_DIRECTIVES.length;
+    const count = finaleUnlocked
+      ? unlocked.size
+      : CORE_DIRECTIVES.filter((k) => unlocked.has(k)).length;
+    return { count, total, ids: [...unlocked] };
   }
 
   function updatePanel() {
@@ -104,7 +114,12 @@
     const { count, total } = getProgress();
     if (progress) progress.textContent = `${count} / ${total} directives discovered`;
 
-    list.innerHTML = Object.entries(DEFINITIONS).map(([id, def]) => {
+    const visibleEntries = Object.entries(DEFINITIONS).filter(([id]) => {
+      if (id === 'finale' || id === 'share') return unlocked.has('finale');
+      return true;
+    });
+
+    list.innerHTML = visibleEntries.map(([id, def]) => {
       const found = unlocked.has(id);
       return `<li class="achievement-item ${found ? 'unlocked' : 'locked'}">
         <span class="achievement-icon">${found ? '◆' : '◇'}</span>
@@ -149,6 +164,7 @@
   });
 
   function restoreState() {
+    if (!unlocked.has('finale')) hidePipe();
     updatePanel();
     if (unlocked.has('fifth_vertical')) {
       document.getElementById('stat-projects').textContent =

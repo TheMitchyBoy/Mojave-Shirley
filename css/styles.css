@@ -2048,6 +2048,10 @@ body.cookie-arc-3 .hero-accent { color: var(--danger) !important; -webkit-text-f
 .press-card h3 { margin: 12px 0; font-size: 1.2rem; }
 .press-card p { color: var(--text-secondary); margin-bottom: 20px; }
 
+#project-pipe[hidden] {
+  display: none !important;
+}
+
 .project-pipe {
   border-color: rgba(110, 231, 183, 0.35) !important;
   background: linear-gradient(135deg, var(--bg-card), rgba(110, 231, 183, 0.08)) !important;

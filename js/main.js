@@ -64,6 +64,8 @@
   finePrint?.addEventListener('mouseenter', () => finePrint.classList.add('revealed'));
 
   projectCards.forEach((card) => {
+    if (card.hidden) return;
+
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     card.addEventListener('mousemove', (e) => {

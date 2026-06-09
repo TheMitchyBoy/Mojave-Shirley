@@ -139,6 +139,8 @@
   }
 
   function openProject(projectId) {
+    if (projectId === 'pipe' && !window.MS?.Achievements?.isUnlocked('finale')) return;
+
     const data = PROJECTS[projectId];
     if (!data) return;
 
