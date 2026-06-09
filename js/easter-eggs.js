@@ -23,12 +23,12 @@
   const surveillanceGrid = document.getElementById('surveillance-grid');
 
   const heroAccentWords = [
-    'remembers about you',
-    'watches you breathe',
-    'files while you sleep',
-    'never deletes you',
-    'knew you\'d come back',
-    'outlives your name',
+    'that remembers you',
+    'that watches you breathe',
+    'that wears your skin',
+    'that never would leave you',
+    'that knew you\'d come back',
+    'that devours your mind',
   ];
   let accentIndex = 0;
 
