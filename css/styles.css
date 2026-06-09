@@ -1172,11 +1172,14 @@ body.classified-mode .hero-accent {
 .project-modal-content {
   max-width: 520px;
   width: 100%;
+  max-height: calc(100dvh - 48px);
   padding: 40px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .project-modal-close {
