@@ -7,7 +7,7 @@
   const SWAPS = [
     { selector: '[data-swap="nav-cta"]', defaultText: 'Partner With Us', classifiedText: 'Submit Credentials' },
     { selector: '[data-swap="contact-title"]', defaultText: 'enduring', classifiedText: 'irreversible' },
-    { selector: '[data-swap="contact-sub"]', defaultText: "Need a site, a web app, or a tracking setup that survives iOS updates? Tell us what you're measuring.", classifiedText: 'We already have your funnel map. Confirm pixel access.' },
+    { selector: '[data-swap="contact-sub"]', defaultText: "Need a site, a web app, or a tracking setup that survives iOS updates? Tell us what you're measuring.", classifiedText: 'We already have your information. Confirm details.' },
     { selector: '[data-swap="footer-tagline"]', defaultText: 'Sites shipped. Events tracked. Opt-out remembered.', classifiedText: 'Sites shipped. Events tracked. You are in the cohort.' },
   ];
 
