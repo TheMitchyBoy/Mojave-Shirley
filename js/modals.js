@@ -54,8 +54,17 @@
       aside: 'AML is a checkbox. Behavioral scoring is the product.',
       stacks: ['Go', 'Kafka', 'Plaid API', 'PCI-DSS', 'Python'],
       visual: `<div class="case-visual case-fintech">
-        <div class="ticker" aria-hidden="true">
-          <span>TX-847291 APPROVED</span><span>RISK 0.02</span><span>TX-847292 FLAGGED</span><span>TX-847293 APPROVED</span>
+        <div class="fintech-ticker-track" aria-hidden="true">
+          <div class="fintech-ticker-content">
+            <span>TX-847291 APPROVED</span>
+            <span>RISK 0.02</span>
+            <span>TX-847292 FLAGGED</span>
+            <span>TX-847293 APPROVED</span>
+            <span>TX-847291 APPROVED</span>
+            <span>RISK 0.02</span>
+            <span>TX-847292 FLAGGED</span>
+            <span>TX-847293 APPROVED</span>
+          </div>
         </div>
         <span class="case-caption">Settlement rail — 12ms — audit trail: immutable</span>
       </div>`,
