@@ -206,7 +206,7 @@
         <button class="project-modal-close" aria-label="Close">&times;</button>
         <span class="modal-tag">Facility Status</span>
         <h3>Mojave Corridor — Node 7</h3>
-        <p>34.0522° N, 115.4631° W</p>
+        <p>55.3422° N, 131.6461° W</p>
         <div class="facility-map">
           <div class="map-grid"></div>
           <div class="map-pin"></div>
