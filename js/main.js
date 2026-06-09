@@ -15,7 +15,6 @@
   const finePrint = document.getElementById('fine-print');
   const projectCards = document.querySelectorAll('.project-card');
   const infraVisual = document.getElementById('infra-visual');
-  const commentBanner = document.getElementById('comment-banner');
   const infraSection = document.getElementById('infrastructure');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -87,9 +86,6 @@
     const observer = new IntersectionObserver(
       ([entry]) => {
         infraVisual.classList.toggle('watching', entry.isIntersecting && entry.intersectionRatio > 0.5);
-        if (entry.isIntersecting && commentBanner) {
-          commentBanner.classList.add('visible');
-        }
       },
       { threshold: [0, 0.3, 0.5, 1] }
     );
